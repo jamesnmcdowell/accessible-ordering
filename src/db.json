@@ -1,0 +1,667 @@
+{
+    "categories": [
+        {
+            "id": 1,
+            "name": "Sandwiches ",
+            "image": "sandwich.jpg",
+            "slug": "sandwich"
+        },
+        {
+            "id": 2,
+            "name": "Mac & Cheese",
+            "image": "mac.jpg",
+            "slug": "mac"
+        },
+        {
+            "id": 3,
+            "name": "Pizzas",
+            "image": "pizza.jpg",
+            "slug": "pizza"
+        },
+        {
+            "id": 4,
+            "name": "Soups",
+            "image": "soup.jpg",
+            "slug": "soup"
+        },
+        {
+            "id": 5,
+            "name": "Salads",
+            "image": "salad.jpg",
+            "slug": "salad"
+        },
+        {
+            "id": 6,
+            "name": "Kids Meals",
+            "image": "kids.jpg",
+            "slug": "kids-meal"
+        },
+        {
+            "id": 7,
+            "name": "Chips",
+            "image": "chips.jpg",
+            "slug": "chips"
+        },
+        {
+            "id": 8,
+            "name": "Desserts",
+            "image": "dessert.jpg",
+            "slug": "dessert"
+        },
+        {
+            "id": 9,
+            "name": "Cinnabon",
+            "image": "cinnabon.jpg",
+            "slug": "cinnabon"
+        }
+    ],
+    "items": [
+        {
+            "id": 1,
+            "name": "Angus Roast Beef",
+            "categoryId": 1,
+            "image": "angus-roast-beef.jpg",
+            "slug": "angus-roast-beef",
+            "description":"Lorem ipsusm dolor sit amet, consec adipiscing elit. Fusce commodo vitae augue quis eleifend.",
+            "calories":"820",
+            "badges": [],
+            "ingredients":{
+                "bread": {
+                    "sourdough":true,
+                    "wheat": false,
+                    "rye": false,
+                    "tortilla": false,
+                    "pretzel": false
+                },
+                "cheese": {
+                    "parmesan": true,
+                    "mozzarella": true,
+                    "cheddar": false,
+                    "provolone": false,
+                    "swiss": false
+                },
+                "meat": {
+                    "ham": true,
+                    "salami": true,
+                    "bacon": false,
+                    "chicken": false,
+                    "Pepperoni": false,
+                    "pastrami": false,
+                    "turkey": false
+                },
+                "vegetable": {
+                    "lettuce": true,
+                    "mushrooms": false,
+                    "onions": false,
+                    "jalapeno": false,
+                    "tomato": true
+                },
+                "condiment": {
+                    "mustard": true,
+                    "mayo": false,
+                    "ranch": false
+                }
+                
+            }
+        },
+        {
+            "id": 2,
+            "name": "Beef Bacon",
+            "categoryId": 1,
+            "image": "beef-bacon.jpg",
+            "slug": "beef-bacon",
+            "description": "Lorem ipsum dolor sit amet, consec adipiscing elit. Fusce commodo vitae augue quis eleifend.",
+            "calories": "820",
+            "badges": [],
+            "ingredients": {
+                "bread": {
+                    "sourdough": true,
+                    "wheat": false,
+                    "rye": false,
+                    "tortilla": false,
+                    "pretzel": false
+                },
+                "cheese": {
+                    "parmesan": true,
+                    "mozzarella": true,
+                    "cheddar": false,
+                    "provolone": false,
+                    "swiss": false
+                },
+                "meat": {
+                    "ham": true,
+                    "salami": true,
+                    "bacon": false,
+                    "chicken": false,
+                    "Pepperoni": false,
+                    "pastrami": false,
+                    "turkey": false
+                },
+                "vegetable": {
+                    "lettuce": true,
+                    "mushrooms": false,
+                    "onions": false,
+                    "jalapeno": false,
+                    "tomato": true
+                },
+                "condiment": {
+                    "mustard": true,
+                    "mayo": false,
+                    "ranch": false
+                }
+            }
+        },
+        {
+            "id": 3,
+            "name": "caprese",
+            "categoryId": 1,
+            "image": "caprese.jpg",
+            "slug": "caprese",
+            "description": "Lorem ipsum dolor sit amet, consec adipiscing elit. Fusce commodo vitae augue quis eleifend.",
+            "calories": "820",
+            "badges": ["veg", "gluten"],
+            "ingredients": {
+                "bread": {
+                    "sourdough": true,
+                    "wheat": false,
+                    "rye": false,
+                    "tortilla": false,
+                    "pretzel": false
+                },
+                "cheese": {
+                    "parmesan": true,
+                    "mozzarella": true,
+                    "cheddar": false,
+                    "provolone": false,
+                    "swiss": false
+                },
+                "meat": {
+                    "ham": true,
+                    "salami": true,
+                    "bacon": false,
+                    "chicken": false,
+                    "Pepperoni": false,
+                    "pastrami": false,
+                    "turkey": false
+                },
+                "vegetable": {
+                    "lettuce": true,
+                    "mushrooms": false,
+                    "onions": false,
+                    "jalapeno": false,
+                    "tomato": true
+                },
+                "condiment": {
+                    "mustard": true,
+                    "mayo": false,
+                    "ranch": false
+                }
+            }
+        },
+        {
+            "id": 4,
+            "name": "Fiesta Chicken",
+            "categoryId": 1,
+            "image": "fiesta-chicken.jpg",
+            "slug": "fiesta-chicken",
+            "description": "Lorem ipsum dolor sit amet, consec adipiscing elit. Fusce commodo vitae augue quis eleifend.",
+            "calories": "820",
+            "badges": [],
+            "ingredients": {
+                "bread": {
+                    "sourdough": true,
+                    "wheat": false,
+                    "rye": false,
+                    "tortilla": false,
+                    "pretzel": false
+                },
+                "cheese": {
+                    "parmesan": true,
+                    "mozzarella": true,
+                    "cheddar": false,
+                    "provolone": false,
+                    "swiss": false
+                },
+                "meat": {
+                    "ham": true,
+                    "salami": true,
+                    "bacon": false,
+                    "chicken": false,
+                    "Pepperoni": false,
+                    "pastrami": false,
+                    "turkey": false
+                },
+                "vegetable": {
+                    "lettuce": true,
+                    "mushrooms": false,
+                    "onions": false,
+                    "jalapeno": false,
+                    "tomato": true
+                },
+                "condiment": {
+                    "mustard": true,
+                    "mayo": false,
+                    "ranch": false
+                }
+            }
+        },
+        {
+            "id": 5,
+            "name": "Fresh Veggie",
+            "categoryId": 1,
+            "image": "fresh-veggie.jpg",
+            "slug": "fresh-veggie",
+            "description": "Lorem ipsum dolor sit amet, consec adipiscing elit. Fusce commodo vitae augue quis eleifend.",
+            "calories": "820",
+            "badges": ["veg"],
+            "ingredients": {
+                "bread": {
+                    "sourdough": true,
+                    "wheat": false,
+                    "rye": false,
+                    "tortilla": false,
+                    "pretzel": false
+                },
+                "cheese": {
+                    "parmesan": true,
+                    "mozzarella": true,
+                    "cheddar": false,
+                    "provolone": false,
+                    "swiss": false
+                },
+                "meat": {
+                    "ham": true,
+                    "salami": true,
+                    "bacon": false,
+                    "chicken": false,
+                    "Pepperoni": false,
+                    "pastrami": false,
+                    "turkey": false
+                },
+                "vegetable": {
+                    "lettuce": true,
+                    "mushrooms": false,
+                    "onions": false,
+                    "jalapeno": false,
+                    "tomato": true
+                },
+                "condiment": {
+                    "mustard": true,
+                    "mayo": false,
+                    "ranch": false
+                }
+            }
+        },
+        {
+            "id": 6,
+            "name": "Turkey Bacon Club",
+            "categoryId": 1,
+            "image": "turkey-bacon-club.jpg",
+            "slug": "turkey-bacon-club",
+            "description": "Lorem ipsum dolor sit amet, consec adipiscing elit. Fusce commodo vitae augue quis eleifend.",
+            "calories": "820",
+            "badges": [],
+            "ingredients": {
+                "bread": {
+                    "sourdough": true,
+                    "wheat": false,
+                    "rye": false,
+                    "tortilla": false,
+                    "pretzel": false
+                },
+                "cheese": {
+                    "parmesan": true,
+                    "mozzarella": true,
+                    "cheddar": false,
+                    "provolone": false,
+                    "swiss": false
+                },
+                "meat": {
+                    "ham": true,
+                    "salami": true,
+                    "bacon": false,
+                    "chicken": false,
+                    "Pepperoni": false,
+                    "pastrami": false,
+                    "turkey": false
+                },
+                "vegetable": {
+                    "lettuce": true,
+                    "mushrooms": false,
+                    "onions": false,
+                    "jalapeno": false,
+                    "tomato": true
+                },
+                "condiment": {
+                    "mustard": true,
+                    "mayo": false,
+                    "ranch": false
+                }
+            }
+        },
+        {
+            "id": 7,
+            "name": "Turkey Guacamole",
+            "categoryId": 1,
+            "image": "turkey-guacamole.jpg",
+            "slug": "turkey-guacamole",
+            "description": "Lorem ipsum dolor sit amet, consec adipiscing elit. Fusce commodo vitae augue quis eleifend.",
+            "calories": "820",
+            "badges": [],
+            "ingredients": {
+                "bread": {
+                    "sourdough": true,
+                    "wheat": false,
+                    "rye": false,
+                    "tortilla": false,
+                    "pretzel": false
+                },
+                "cheese": {
+                    "parmesan": true,
+                    "mozzarella": true,
+                    "cheddar": false,
+                    "provolone": false,
+                    "swiss": false
+                },
+                "meat": {
+                    "ham": true,
+                    "salami": true,
+                    "bacon": false,
+                    "chicken": false,
+                    "Pepperoni": false,
+                    "pastrami": false,
+                    "turkey": false
+                },
+                "vegetable": {
+                    "lettuce": true,
+                    "mushrooms": false,
+                    "onions": false,
+                    "jalapeno": false,
+                    "tomato": true
+                },
+                "condiment": {
+                    "mustard": true,
+                    "mayo": false,
+                    "ranch": false
+                }
+            }
+        },
+        {
+            "id": 8,
+            "name": "Turkey Original",
+            "categoryId": 1,
+            "image": "turkey-original.jpg",
+            "slug": "turkey-original",
+            "description": "Lorem ipsum dolor sit amet, consec adipiscing elit. Fusce commodo vitae augue quis eleifend.",
+            "calories": "820",
+            "badges": [],
+            "ingredients": {
+                "bread": {
+                    "sourdough": true,
+                    "wheat": false,
+                    "rye": false,
+                    "tortilla": false,
+                    "pretzel": false
+                },
+                "cheese": {
+                    "parmesan": true,
+                    "mozzarella": true,
+                    "cheddar": false,
+                    "provolone": false,
+                    "swiss": false
+                },
+                "meat": {
+                    "ham": true,
+                    "salami": true,
+                    "bacon": false,
+                    "chicken": false,
+                    "Pepperoni": false,
+                    "pastrami": false,
+                    "turkey": false
+                },
+                "vegetable": {
+                    "lettuce": true,
+                    "mushrooms": false,
+                    "onions": false,
+                    "jalapeno": false,
+                    "tomato": true
+                },
+                "condiment": {
+                    "mustard": true,
+                    "mayo": false,
+                    "ranch": false
+                }
+            }
+        },
+        {
+            "id": 9,
+            "name": "Smokey Brisketeer",
+            "categoryId": 2,
+            "image": "smokey-brisketeer.jpg",
+            "slug": "smokey-brisketeer",
+            "description": "Lorem ipsum dolor sit amet, consec adipiscing elit. Fusce commodo vitae augue quis eleifend.",
+            "calories": "820",
+            "badges": []
+        },
+        {
+            "id": 10,
+            "name": "Shrimply the Best",
+            "categoryId": 2,
+            "image": "shrimply-the-best.jpg",
+            "slug": "shrimply-the-best",
+            "description": "Lorem ipsum dolor sit amet, consec adipiscing elit. Fusce commodo vitae augue quis eleifend.",
+            "calories": "820",
+            "badges": []
+        },
+        {
+            "id": 11,
+            "name": "Poultry in Motion",
+            "categoryId": 2,
+            "image": "poultry-in-Motion.jpg",
+            "slug": "poultry-in-Motion",
+            "description": "Lorem ipsum dolor sit amet, consec adipiscing elit. Fusce commodo vitae augue quis eleifend.",
+            "calories": "820",
+            "badges": []
+        },
+        {
+            "id": 12,
+            "name": "BBQ Chicken and Jalapeno",
+            "categoryId": 3,
+            "image": "bbq-chicken.jpg",
+            "slug": "bbq-chicken",
+            "description": "Lorem ipsum dolor sit amet, consec adipiscing elit. Fusce commodo vitae augue quis eleifend.",
+            "calories": "820",
+            "badges": [],
+            "ingredients": {
+                "cheese": {
+                    "parmesan": true,
+                    "mozzarella": true,
+                    "cheddar": false
+                },
+                "meat": {
+                    "ham": false,
+                    "salami": false,
+                    "bacon": false,
+                    "chicken": true,
+                    "Pepperoni": false,
+                    "pastrami": false,
+                    "turkey": false
+                },
+                "vegetable": {
+                    "mushrooms": false,
+                    "onions": true,
+                    "jalapeno": false,
+                    "tomato": true
+                }
+            }
+        },
+        {
+            "id": 13,
+            "name": "Pepperoni Double Cheese",
+            "categoryId": 3,
+            "image": "pepperoni.jpg",
+            "slug": "pepperoni",
+            "description": "Lorem ipsum dolor sit amet, consec adipiscing elit. Fusce commodo vitae augue quis eleifend.",
+            "calories": "820",
+            "badges": [],
+            "ingredients": {
+                "cheese": {
+                    "parmesan": true,
+                    "mozzarella": true,
+                    "cheddar": false
+                },
+                "meat": {
+                    "ham": false,
+                    "salami": false,
+                    "bacon": false,
+                    "chicken": false,
+                    "Pepperoni": true,
+                    "pastrami": false,
+                    "turkey": false
+                },
+                "vegetable": {
+                    "mushrooms": false,
+                    "onions": false,
+                    "jalapeno": false,
+                    "tomato": true
+                }
+            }
+        },
+        {
+            "id": 14,
+            "name": "Grilled Chicken Pesto",
+            "categoryId": 3,
+            "image": "chicken-pesto.jpg",
+            "slug": "chicken-pesto",
+            "description": "Lorem ipsum dolor sit amet, consec adipiscing elit. Fusce commodo vitae augue quis eleifend.",
+            "calories": "820",
+            "badges": [],
+            "ingredients": {
+                "cheese": {
+                    "parmesan": true,
+                    "mozzarella": true,
+                    "cheddar": false
+                },
+                "meat": {
+                    "ham": false,
+                    "salami": false,
+                    "bacon": false,
+                    "chicken": true,
+                    "Pepperoni": false,
+                    "pastrami": false,
+                    "turkey": false
+                },
+                "vegetable": {
+                    "mushrooms": false,
+                    "onions": true,
+                    "jalapeno": false,
+                    "tomato": false
+                }
+            }
+        },
+        {
+            "id": 15,
+            "name": "Fresh Veggie",
+            "categoryId": 3,
+            "image": "fresh-veggie.jpg",
+            "slug": "fresh-veggie",
+            "description": "Lorem ipsum dolor sit amet, consec adipiscing elit. Fusce commodo vitae augue quis eleifend.",
+            "calories": "820",
+            "badges": ["veg"],
+            "ingredients": {
+                "cheese": {
+                    "parmesan": true,
+                    "mozzarella": true,
+                    "cheddar": false
+                },
+                "meat": {
+                    "ham": false,
+                    "salami": false,
+                    "bacon": false,
+                    "chicken": false,
+                    "Pepperoni": false,
+                    "pastrami": false,
+                    "turkey": false
+                },
+                "vegetable": {
+                    "mushrooms": true,
+                    "onions": true,
+                    "jalapeno": true,
+                    "tomato": true
+                }
+            }
+        },
+        {
+            "id": 16,
+            "name": "Double Cheese",
+            "categoryId": 3,
+            "image": "double-cheese.jpg",
+            "slug": "double-cheese",
+            "description": "Lorem ipsum dolor sit amet, consec adipiscing elit. Fusce commodo vitae augue quis eleifend.",
+            "calories": "820",
+            "badges": ["veg"],
+            "ingredients": {
+                "cheese": {
+                    "parmesan": true,
+                    "mozzarella": true,
+                    "cheddar": true
+                },
+                "meat": {
+                    "ham": false,
+                    "salami": false,
+                    "bacon": false,
+                    "chicken": false,
+                    "Pepperoni": false,
+                    "pastrami": false,
+                    "turkey": false
+                },
+                "vegetable": {
+                    "mushrooms": false,
+                    "onions": false,
+                    "jalapeno": false,
+                    "tomato": true
+                }
+            }
+        }
+    ],
+    "I": [
+        {
+            "id": 1,
+            "name": "Llama socks",
+            "categoryId": 1,
+            "price": 4.99,
+            "img": "https://www.uncommongoods.com/images/items/44700/44721_1_1200px.jpg",
+            "description": "Sed vel aliquam tellus. Fusce nunc purus, accumsan quis magna vel, luctus rutrum ipsum. Curabitur eget fringilla justo, ut ornare nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+            "quantity": 3
+        },
+        {
+            "id": 3,
+            "name": "Llama Onesie",
+            "categoryId": 1,
+            "price": 9.99,
+            "img": "https://images-na.ssl-images-amazon.com/images/I/51lO1PXxgYL._UX562_.jpg",
+            "description": "Pellentesque ac ultrices sapien, ac vulputate elit. Quisque nunc orci, pretium at turpis ut, ullamcorper tristique felis. Nam dapibus accumsan ipsum, vitae varius ligula gravida sit amet.",
+            "quantity": 1
+        }
+    ],
+    "cart": [
+        {
+            "id": 1,
+            "name": "Llama socks",
+            "categoryId": 1,
+            "price": 4.99,
+            "img": "https://www.uncommongoods.com/images/items/44700/44721_1_1200px.jpg",
+            "description": "Sed vel aliquam tellus. Fusce nunc purus, accumsan quis magna vel, luctus rutrum ipsum. Curabitur eget fringilla justo, ut ornare nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+            "quantity": 3
+        },
+        {
+            "id": 3,
+            "name": "Llama Onesie",
+            "categoryId": 1,
+            "price": 9.99,
+            "img": "https://images-na.ssl-images-amazon.com/images/I/51lO1PXxgYL._UX562_.jpg",
+            "description": "Pellentesque ac ultrices sapien, ac vulputate elit. Quisque nunc orci, pretium at turpis ut, ullamcorper tristique felis. Nam dapibus accumsan ipsum, vitae varius ligula gravida sit amet.",
+            "quantity": 1
+        }
+    ]
+}
