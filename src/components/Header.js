@@ -1,12 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import HamburgerMenu from './HamburgerMenu';
 import { media, Container } from './Media';
 import styled from 'styled-components';
-// import Headroom from 'react-headroom';
+import CartBadge from './CartBadge';
 
 let Header = ({match}) =>
-    
     <NavBar>
         <Container>
             <MenuLinks>
@@ -16,13 +14,12 @@ let Header = ({match}) =>
                 <NavLink aria-label={`Homepage `} to="/" >
                     <Span> LOGO </Span>
                 </NavLink>
-                <NavLink to="/" >
-                    <Span> CART </Span>
+                <NavLink to="/cart" >
+                    <Span> Cart[<CartBadge />] </Span>
                 </NavLink>
             </MenuLinks>
         </Container>
     </NavBar>
-   
 
 export default Header;
 

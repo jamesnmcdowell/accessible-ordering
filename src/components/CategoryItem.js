@@ -7,10 +7,10 @@ let CategoryItem = ({ item, match }) =>
     <Item>
         <Link aria-label={`${item.name} order`} role="link" tabIndex="0" alt={`${item.name}`} to={`/categories/${item.slug}`}> 
         <ImgGradient>
-            <Img aria-hidden="true" src={require(`../assets/categories/${item.image}`)} />
+            <Img alt={`${item.name}`} aria-hidden="true" src={require(`../assets/categories/${item.image}`)} />
         </ImgGradient>
         <TitleContainer>
-            <Title aria-hidden="true">{item.name}</Title>
+            <Title >{item.name}</Title>
         </TitleContainer>
         </Link>
     </Item>
