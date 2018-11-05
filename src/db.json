@@ -63,7 +63,7 @@
             "image": "angus-roast-beef.jpg",
             "slug": "angus-roast-beef",
             "price": 6,
-            "description":"Lorem ipsusm dolor sit amet, consec adipiscing elit. Fusce commodo vitae augue quis eleifend.",
+            "description":"Angus roast beef with cheddar, mozzarella & Parmesan cheeses, dill slices, red onion, lettuce, tomato",
             "calories":"820",
             "badges": [],
             "ingredients":{
@@ -112,7 +112,7 @@
             "image": "beef-bacon.jpg",
             "slug": "beef-bacon",
             "price": 7,
-            "description": "Lorem ipsum dolor sit amet, consec adipiscing elit. Fusce commodo vitae augue quis eleifend.",
+            "description": "Shaved Angus roast beef with smoked cheddar cheese, bacon,",
             "calories": "820",
             "badges": [],
             "ingredients": {
@@ -160,7 +160,7 @@
             "image": "caprese.jpg",
             "slug": "caprese",
             "price": 8,
-            "description": "Lorem ipsum dolor sit amet, consec adipiscing elit. Fusce commodo vitae augue quis eleifend.",
+            "description": "Shredded mozzarella cheese with roasted tomato, light mayonnaise, field greens, tomato",
             "calories": "820",
             "badges": ["veg", "gluten"],
             "ingredients": {
@@ -208,7 +208,7 @@
             "image": "fiesta-chicken.jpg",
             "slug": "fiesta-chicken",
             "price": 5,
-            "description": "Lorem ipsum dolor sit amet, consec adipiscing elit. Fusce commodo vitae augue quis eleifend.",
+            "description": "Tender roasted chicken breast with cheddar cheese, black olives, roasted red peppers",
             "calories": "820",
             "badges": [],
             "ingredients": {
@@ -256,7 +256,7 @@
             "image": "fresh-veggie.jpg",
             "slug": "fresh-veggie",
             "price": 5,
-            "description": "Lorem ipsum dolor sit amet, consec adipiscing elit. Fusce commodo vitae augue quis eleifend.",
+            "description": "cheddar, mozzarella & Parmesan cheeses, dill slices, red onion, lettuce, tomato, light mayonnaise,",
             "calories": "820",
             "badges": ["veg"],
             "ingredients": {
@@ -304,7 +304,7 @@
             "image": "turkey-bacon-club.jpg",
             "slug": "turkey-bacon-club",
             "price": 6,
-            "description": "Lorem ipsum dolor sit amet, consec adipiscing elit. Fusce commodo vitae augue quis eleifend.",
+            "description": "Smoked turkey breast and bacon strips with melted cheddar, mozzarella & Parmesan cheeses, lettuce,",
             "calories": "820",
             "badges": [],
             "ingredients": {
@@ -352,7 +352,7 @@
             "image": "turkey-guacamole.jpg",
             "slug": "turkey-guacamole",
             "price": 7.50,
-            "description": "Lorem ipsum dolor sit amet, consec adipiscing elit. Fusce commodo vitae augue quis eleifend.",
+            "description": "Smoked turkey breast with guacamole, red onion, lettuce and tomato. ",
             "calories": "820",
             "badges": [],
             "ingredients": {
@@ -400,7 +400,7 @@
             "image": "turkey-original.jpg",
             "slug": "turkey-original",
             "price": 6.50,
-            "description": "Lorem ipsum dolor sit amet, consec adipiscing elit. Fusce commodo vitae augue quis eleifend.",
+            "description": "Smoked turkey breast with Genoa salami, cheddar, mozzarella, & Parmesan cheeses, black olives, lettuce",
             "calories": "820",
             "badges": [],
             "ingredients": {
