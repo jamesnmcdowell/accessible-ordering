@@ -8,6 +8,8 @@ import ItemScreen from './components/ItemScreen';
 import CategoryScreen from './components/CategoryScreen';
 import Shell from './components/Shell';
 import ItemCustScreen from './components/ItemCustScreen';
+import Cart from './components/Cart';
+
 
 let Router = () =>
     <HashRouter >
@@ -17,6 +19,7 @@ let Router = () =>
                 <Route path="/categories" exact component={CategoryScreen} />
                 <Route path="/categories/:categoryName" exact component={ItemScreen} />
                 <Route path="/categories/:categoryName/:itemId" exact component={ItemCustScreen} />
+                <Route path="/cart" exact component={Cart} />
             </Switch>
         </Shell>
     </HashRouter>

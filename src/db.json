@@ -62,6 +62,7 @@
             "categoryId": 1,
             "image": "angus-roast-beef.jpg",
             "slug": "angus-roast-beef",
+            "price": 6,
             "description":"Lorem ipsusm dolor sit amet, consec adipiscing elit. Fusce commodo vitae augue quis eleifend.",
             "calories":"820",
             "badges": [],
@@ -85,7 +86,7 @@
                     "salami": true,
                     "bacon": false,
                     "chicken": false,
-                    "Pepperoni": false,
+                    "pepperoni": false,
                     "pastrami": false,
                     "turkey": false
                 },
@@ -110,6 +111,7 @@
             "categoryId": 1,
             "image": "beef-bacon.jpg",
             "slug": "beef-bacon",
+            "price": 7,
             "description": "Lorem ipsum dolor sit amet, consec adipiscing elit. Fusce commodo vitae augue quis eleifend.",
             "calories": "820",
             "badges": [],
@@ -133,7 +135,7 @@
                     "salami": true,
                     "bacon": false,
                     "chicken": false,
-                    "Pepperoni": false,
+                    "pepperoni": false,
                     "pastrami": false,
                     "turkey": false
                 },
@@ -157,6 +159,7 @@
             "categoryId": 1,
             "image": "caprese.jpg",
             "slug": "caprese",
+            "price": 8,
             "description": "Lorem ipsum dolor sit amet, consec adipiscing elit. Fusce commodo vitae augue quis eleifend.",
             "calories": "820",
             "badges": ["veg", "gluten"],
@@ -180,7 +183,7 @@
                     "salami": true,
                     "bacon": false,
                     "chicken": false,
-                    "Pepperoni": false,
+                    "pepperoni": false,
                     "pastrami": false,
                     "turkey": false
                 },
@@ -204,6 +207,7 @@
             "categoryId": 1,
             "image": "fiesta-chicken.jpg",
             "slug": "fiesta-chicken",
+            "price": 5,
             "description": "Lorem ipsum dolor sit amet, consec adipiscing elit. Fusce commodo vitae augue quis eleifend.",
             "calories": "820",
             "badges": [],
@@ -227,7 +231,7 @@
                     "salami": true,
                     "bacon": false,
                     "chicken": false,
-                    "Pepperoni": false,
+                    "pepperoni": false,
                     "pastrami": false,
                     "turkey": false
                 },
@@ -251,6 +255,7 @@
             "categoryId": 1,
             "image": "fresh-veggie.jpg",
             "slug": "fresh-veggie",
+            "price": 5,
             "description": "Lorem ipsum dolor sit amet, consec adipiscing elit. Fusce commodo vitae augue quis eleifend.",
             "calories": "820",
             "badges": ["veg"],
@@ -274,7 +279,7 @@
                     "salami": true,
                     "bacon": false,
                     "chicken": false,
-                    "Pepperoni": false,
+                    "pepperoni": false,
                     "pastrami": false,
                     "turkey": false
                 },
@@ -298,6 +303,7 @@
             "categoryId": 1,
             "image": "turkey-bacon-club.jpg",
             "slug": "turkey-bacon-club",
+            "price": 6,
             "description": "Lorem ipsum dolor sit amet, consec adipiscing elit. Fusce commodo vitae augue quis eleifend.",
             "calories": "820",
             "badges": [],
@@ -321,7 +327,7 @@
                     "salami": true,
                     "bacon": false,
                     "chicken": false,
-                    "Pepperoni": false,
+                    "pepperoni": false,
                     "pastrami": false,
                     "turkey": false
                 },
@@ -345,6 +351,7 @@
             "categoryId": 1,
             "image": "turkey-guacamole.jpg",
             "slug": "turkey-guacamole",
+            "price": 7.50,
             "description": "Lorem ipsum dolor sit amet, consec adipiscing elit. Fusce commodo vitae augue quis eleifend.",
             "calories": "820",
             "badges": [],
@@ -368,7 +375,7 @@
                     "salami": true,
                     "bacon": false,
                     "chicken": false,
-                    "Pepperoni": false,
+                    "pepperoni": false,
                     "pastrami": false,
                     "turkey": false
                 },
@@ -392,6 +399,7 @@
             "categoryId": 1,
             "image": "turkey-original.jpg",
             "slug": "turkey-original",
+            "price": 6.50,
             "description": "Lorem ipsum dolor sit amet, consec adipiscing elit. Fusce commodo vitae augue quis eleifend.",
             "calories": "820",
             "badges": [],
@@ -415,7 +423,7 @@
                     "salami": true,
                     "bacon": false,
                     "chicken": false,
-                    "Pepperoni": false,
+                    "pepperoni": false,
                     "pastrami": false,
                     "turkey": false
                 },
@@ -439,6 +447,7 @@
             "categoryId": 2,
             "image": "smokey-brisketeer.jpg",
             "slug": "smokey-brisketeer",
+            "price": 8,
             "description": "Lorem ipsum dolor sit amet, consec adipiscing elit. Fusce commodo vitae augue quis eleifend.",
             "calories": "820",
             "badges": []
@@ -449,6 +458,7 @@
             "categoryId": 2,
             "image": "shrimply-the-best.jpg",
             "slug": "shrimply-the-best",
+            "price": 9,
             "description": "Lorem ipsum dolor sit amet, consec adipiscing elit. Fusce commodo vitae augue quis eleifend.",
             "calories": "820",
             "badges": []
@@ -459,6 +469,7 @@
             "categoryId": 2,
             "image": "poultry-in-Motion.jpg",
             "slug": "poultry-in-Motion",
+            "price": 7,
             "description": "Lorem ipsum dolor sit amet, consec adipiscing elit. Fusce commodo vitae augue quis eleifend.",
             "calories": "820",
             "badges": []
@@ -469,6 +480,7 @@
             "categoryId": 3,
             "image": "bbq-chicken.jpg",
             "slug": "bbq-chicken",
+            "price": 9,
             "description": "Lorem ipsum dolor sit amet, consec adipiscing elit. Fusce commodo vitae augue quis eleifend.",
             "calories": "820",
             "badges": [],
@@ -483,7 +495,7 @@
                     "salami": false,
                     "bacon": false,
                     "chicken": true,
-                    "Pepperoni": false,
+                    "pepperoni": false,
                     "pastrami": false,
                     "turkey": false
                 },
@@ -497,10 +509,11 @@
         },
         {
             "id": 13,
-            "name": "Pepperoni Double Cheese",
+            "name": "pepperoni Double Cheese",
             "categoryId": 3,
             "image": "pepperoni.jpg",
             "slug": "pepperoni",
+            "price": 9,
             "description": "Lorem ipsum dolor sit amet, consec adipiscing elit. Fusce commodo vitae augue quis eleifend.",
             "calories": "820",
             "badges": [],
@@ -515,7 +528,7 @@
                     "salami": false,
                     "bacon": false,
                     "chicken": false,
-                    "Pepperoni": true,
+                    "pepperoni": true,
                     "pastrami": false,
                     "turkey": false
                 },
@@ -533,6 +546,7 @@
             "categoryId": 3,
             "image": "chicken-pesto.jpg",
             "slug": "chicken-pesto",
+            "price": 8,
             "description": "Lorem ipsum dolor sit amet, consec adipiscing elit. Fusce commodo vitae augue quis eleifend.",
             "calories": "820",
             "badges": [],
@@ -547,7 +561,7 @@
                     "salami": false,
                     "bacon": false,
                     "chicken": true,
-                    "Pepperoni": false,
+                    "pepperoni": false,
                     "pastrami": false,
                     "turkey": false
                 },
@@ -565,6 +579,7 @@
             "categoryId": 3,
             "image": "fresh-veggie.jpg",
             "slug": "fresh-veggie",
+            "price": 7,
             "description": "Lorem ipsum dolor sit amet, consec adipiscing elit. Fusce commodo vitae augue quis eleifend.",
             "calories": "820",
             "badges": ["veg"],
@@ -579,7 +594,7 @@
                     "salami": false,
                     "bacon": false,
                     "chicken": false,
-                    "Pepperoni": false,
+                    "pepperoni": false,
                     "pastrami": false,
                     "turkey": false
                 },
@@ -597,6 +612,7 @@
             "categoryId": 3,
             "image": "double-cheese.jpg",
             "slug": "double-cheese",
+            "price": 8,
             "description": "Lorem ipsum dolor sit amet, consec adipiscing elit. Fusce commodo vitae augue quis eleifend.",
             "calories": "820",
             "badges": ["veg"],
@@ -611,7 +627,7 @@
                     "salami": false,
                     "bacon": false,
                     "chicken": false,
-                    "Pepperoni": false,
+                    "pepperoni": false,
                     "pastrami": false,
                     "turkey": false
                 },
@@ -624,44 +640,7 @@
             }
         }
     ],
-    "I": [
-        {
-            "id": 1,
-            "name": "Llama socks",
-            "categoryId": 1,
-            "price": 4.99,
-            "img": "https://www.uncommongoods.com/images/items/44700/44721_1_1200px.jpg",
-            "description": "Sed vel aliquam tellus. Fusce nunc purus, accumsan quis magna vel, luctus rutrum ipsum. Curabitur eget fringilla justo, ut ornare nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
-            "quantity": 3
-        },
-        {
-            "id": 3,
-            "name": "Llama Onesie",
-            "categoryId": 1,
-            "price": 9.99,
-            "img": "https://images-na.ssl-images-amazon.com/images/I/51lO1PXxgYL._UX562_.jpg",
-            "description": "Pellentesque ac ultrices sapien, ac vulputate elit. Quisque nunc orci, pretium at turpis ut, ullamcorper tristique felis. Nam dapibus accumsan ipsum, vitae varius ligula gravida sit amet.",
-            "quantity": 1
-        }
-    ],
     "cart": [
-        {
-            "id": 1,
-            "name": "Llama socks",
-            "categoryId": 1,
-            "price": 4.99,
-            "img": "https://www.uncommongoods.com/images/items/44700/44721_1_1200px.jpg",
-            "description": "Sed vel aliquam tellus. Fusce nunc purus, accumsan quis magna vel, luctus rutrum ipsum. Curabitur eget fringilla justo, ut ornare nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
-            "quantity": 3
-        },
-        {
-            "id": 3,
-            "name": "Llama Onesie",
-            "categoryId": 1,
-            "price": 9.99,
-            "img": "https://images-na.ssl-images-amazon.com/images/I/51lO1PXxgYL._UX562_.jpg",
-            "description": "Pellentesque ac ultrices sapien, ac vulputate elit. Quisque nunc orci, pretium at turpis ut, ullamcorper tristique felis. Nam dapibus accumsan ipsum, vitae varius ligula gravida sit amet.",
-            "quantity": 1
-        }
+    
     ]
 }

@@ -28,7 +28,6 @@ let CategoryScreen = ({ products, match }) =>
 
 export default CategoryScreen;
 
-
 let AutoGrid = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
