@@ -7,12 +7,12 @@ import categoryHero from '../assets/category-hero.png';
 import { connect } from 'react-redux';
 
 
-let ItemScreen = ({ items, match }) =>
+let ItemScreen = ({ items, match, history }) =>
     <div>
         <Container vert>
             <AutoGrid>
                 {items.map((item, i) =>
-                    <Item item={item} match={match} key={`${i}_${item}`} />
+                    <Item history={history} item={item} match={match} key={`${i}_${item}`} />
                 )}
             </AutoGrid>
         </Container>

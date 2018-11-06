@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 
 
-let Item = ({ item, match, dispatch }) =>            
+let Item = ({ item, match, dispatch, history }) =>            
     <ItemContainer>
         <Title>{item.name}</Title>
         <Img alt={item.name} src={require(`../assets/${match.params.categoryName}/${item.image}`)} />
@@ -19,7 +19,7 @@ let Item = ({ item, match, dispatch }) =>
         <p>{item.description}</p>
         <GridSeparate>
             <Button aria-label={`customize ${item.name} ${match.params.categoryName}`} role="button" tabIndex="0" alt={`${item.name}`} to={`/categories/${match.params.categoryName}/${item.id}`} > Customize </Button> 
-            <Button2 aria-live="assertive" onClick={() => dispatch({ type: "ADD_TO_CART", payload: item })} aria-label={`add to cart ${item.name} `} role="button" tabIndex="0"> Add to Cart</Button2>
+            <Button2 aria-live="assertive" onClick={() => { dispatch({ type: "ADD_TO_CART", payload: item }); history.push('/'); }} aria-label={`add to cart ${item.name} `} role="button" tabIndex="0"> Add to Cart</Button2>
         </GridSeparate>
     </ItemContainer>
 
