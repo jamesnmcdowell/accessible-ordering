@@ -4,16 +4,18 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { media, Container, Container2 } from './Media';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-let catOrder;
+
 
 class ItemCustScreen extends React.Component {
     constructor (props) {
         super(props);
-        console.log(props.item.ingredients);
-        catOrder = Object.keys(props.item.ingredients)
-        console.log(props.item.ingredients);
+        let catOrder = Object.keys(props.item.ingredients)
+        
         this.state = {
+            catOrder,
+            focusCat: null,
             curIngredients: { ...props.item.ingredients},
             catCustOpen: catOrder.reduce((a, c) => {
                 a[c] = false;
@@ -22,8 +24,18 @@ class ItemCustScreen extends React.Component {
         };
     }
 
+    componentDidUpdate (prevProps) {
+        if(this.state.focusCat) {
+            document.querySelector(`#${this.state.focusCat}_0_input`).focus();
+            this.setState({focusCat: null});
+
+        }
+
+    }
+
     openCatCust (cat) {
         this.setState({
+            focusCat: cat,
             catCustOpen: {
                 ...this.state.catCustOpen,
                 [cat]: true
@@ -41,7 +53,6 @@ class ItemCustScreen extends React.Component {
 
     selectIngredient(cat, ingred) {
         let ingreds = this.state.curIngredients;
-        
         ingreds[cat] = Object.keys(ingreds[cat]).reduce((a, c) => {
             a[c] = (c === ingred);
             return a;
@@ -55,8 +66,8 @@ class ItemCustScreen extends React.Component {
 
 
     render () {
-        let {match, item, dispatch} = this.props,
-            { catCustOpen, curIngredients } = this.state;
+        let {match, item, dispatch, history} = this.props,
+            { catCustOpen, curIngredients, catOrder } = this.state;
             console.log(catCustOpen);
 
         return (
@@ -67,27 +78,30 @@ class ItemCustScreen extends React.Component {
                         {catOrder.map((c, i) =>
                             <Section key={`custcat${c}`}>
                                 <div>
-                                    <CatTitle aria-label={`Current ${c} Selection`}> {c} :
+                                    <CatTitle aria-label="{`${c}`}"> {c}</CatTitle>
 
+                                    <SelectedSpan aria-label={`Current ${c} Selection`} >
+                                    Selected:
                                     {
                                             Object.keys(item.ingredients[c])
                                                 .filter((cc) => (item.ingredients[c][cc]))
-                                                .map((c) => (<SelectedSpan> {c},</SelectedSpan>))
+                                            .reduce((a, c, i) => (`${a}${(i === 0) ? c : `, ${c}`   }`),' '  )
 
                                         }
-                                    </CatTitle>
+                                     </SelectedSpan>
                                 </div>
                             {(catCustOpen[c])?
                                 (
                                     
                                     <form> 
                                     <fieldset>
-                                    <legend>{c}</legend>
+                                        <legend aria-label={`${c} customizations`} tabIndex="0" id={`${c}_legend`}> {c}</legend>
                                     {
                                     Object.keys(item.ingredients[c]).sort()
-                                          .map((cc) => (
+                                          .map((cc, i) => (
                                               <div>
                                                 <input 
+                                                    id={`${c}_${i}_input`}
                                                     aria-label={cc} 
                                                     role="checkbox"  
                                                     type={(c === 'bread')? 'radio' : 'checkbox'} 
@@ -112,7 +126,7 @@ class ItemCustScreen extends React.Component {
                             </Section>
                         )}
                     </Gridlist>
-                    <Button aria-label="add customized item to cart" onClick={() => dispatch({ type: "ADD_TO_CART", payload: item })} > Add to Cart </Button>
+                    <Button aria-label="add customized item to cart" onClick={() => { dispatch({ type: "ADD_TO_CART", payload: item }); history.push('/'); }}  > Add to Cart </Button>
                 </div>
             </Container2>
         )
@@ -156,9 +170,12 @@ let Section = styled.div`
 let CatTitle = styled.h2`
     text-transform:capitalize;
 `;
-let SelectedSpan = styled.span`
+let SelectedSpan = styled.p`
     font-weight: 300;
-
+`;
+let InvisDiv = styled.div`
+    height: 20px;
+    background-color: red;
 `;
 
 let Button = styled.button `
