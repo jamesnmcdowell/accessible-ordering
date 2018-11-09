@@ -6,7 +6,8 @@ import data from './db';
 const initialState = {
     items: data.items,
     categories: data.categories,
-    cart: data.cart
+    cart: data.cart,
+    cost: data.ingredientCosts
 
 };
 

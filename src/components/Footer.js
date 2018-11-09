@@ -9,14 +9,8 @@ let Footer = () =>
     <FooterStyled >
         <Container>
             <FlexContainer>
-                {/* <a name="email" href="mailto:james.n.mcdowell@gmail.com" target="_blank">
-                    <Img src={email}/>
-                </a>
-                <a name="linkedin" href="https://www.linkedin.com/in/jamesnmcdowell/" target="_blank">
-                    <Img src={linkedin} />
-                </a>
-                <a name="github" href="https://github.com/jamesnmcdowell" target="_blank">
-                    <Img src={github} />
+                {/* <a name="linkedin" href="https://www.linkedin.com/in/jamesnmcdowell/" target="_blank">
+                    Ask a Question
                 </a> */}
             </FlexContainer>
         </Container>
