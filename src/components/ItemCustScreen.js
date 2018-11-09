@@ -13,7 +13,11 @@ class ItemCustScreen extends React.Component {
         super(props);
         let catOrder = Object.keys(props.item.ingredients)
         
+        
         this.state = {
+            defaultIngredients: Object.keys(props.item.ingredients).reduce((a, c) => (
+                [...a, ...Object.keys(props.item.ingredients[c]).filter((cc) => (props.item.ingredients[c][cc]))]
+            ), []),
             catOrder,
             focusCat: null,
             curIngredients: { ...props.item.ingredients},
@@ -23,6 +27,8 @@ class ItemCustScreen extends React.Component {
             },{})
         };
     }
+   
+
 
     componentDidUpdate (prevProps) {
         if(this.state.focusCat) {
@@ -63,12 +69,24 @@ class ItemCustScreen extends React.Component {
         });
     }
 
+    addToCart () {
+        let payload = {
+            type: "ADD_TO_CART",
+            payload: {...this.props.item, ingredients: this.state.curIngredients}
+        };
 
+        console.dir(payload);
+        
+        this.props.dispatch(payload); 
+        this.props.history.push('/'); 
+    }
 
     render () {
-        let {match, item, dispatch, history} = this.props,
-            { catCustOpen, curIngredients, catOrder } = this.state;
-            console.log(catCustOpen);
+        let {match, item, cost} = this.props,
+            { catCustOpen, curIngredients, catOrder, defaultIngredients } = this.state;
+            console.log(item);
+            console.log(defaultIngredients);
+
 
         return (
             <Container2>
@@ -102,7 +120,7 @@ class ItemCustScreen extends React.Component {
                                               <div>
                                                 <input 
                                                     id={`${c}_${i}_input`}
-                                                    aria-label={cc} 
+                                                    aria-label={`${cc}${(cost[c][cc] > 0 && !(defaultIngredients.includes(cc))) ? ` (+ ${(cost[c][cc])} dollars)` : ''}`}
                                                     role="checkbox"  
                                                     type={(c === 'bread')? 'radio' : 'checkbox'} 
                                                     name={c} 
@@ -110,7 +128,7 @@ class ItemCustScreen extends React.Component {
                                                     defaultChecked={(item.ingredients[c][cc])? true : false}  
                                                     onClick={(c === 'bread') ? this.selectIngredient.bind(this, c, cc) : this.toggleIngredient.bind(this, c, cc)}
                                                 />
-                                                <label htmlFor={cc}>{cc}</label>               
+                                                  <label htmlFor={cc}>{`${cc}${(cost[c][cc] > 0 && !(defaultIngredients.includes(cc) )) ? ` (+$${(cost[c][cc])})` : ''}`}</label>               
                                               </div>
                                         ))
                                     }
@@ -119,14 +137,18 @@ class ItemCustScreen extends React.Component {
                                 ) : (
                                     <div> 
                                   
-                                            <Button aria-label={`${c} Customization`} onClick={this.openCatCust.bind(this, c)}> <span aria-label={`${c} Customization`} >Customize {c}</span></Button>
+                                            <Button 
+                                                aria-label={`${c} Customization`} 
+                                                onClick={this.openCatCust.bind(this, c)}
+                                            > 
+                                            <span aria-label={`${c} Customization`} >Customize {c}</span></Button>
                                     </div>
                                 )
                             }
                             </Section>
                         )}
                     </Gridlist>
-                    <Button aria-label="add customized item to cart" onClick={() => { dispatch({ type: "ADD_TO_CART", payload: item }); history.push('/'); }}  > Add to Cart </Button>
+                    <Button aria-label="add customized item to cart" onClick={this.addToCart.bind(this)}  > Add to Cart </Button>
                 </div>
             </Container2>
         )
@@ -136,12 +158,12 @@ class ItemCustScreen extends React.Component {
 
 let mapStateToProps = (state, props) => {
     let { match } = props;
-    let { categories, items } = state;
+    let { categories, items, cost } = state;
     let itemId = parseInt(match.params.itemId, 10);
     let item = items.find((obj) => obj.id === itemId);
     console.log(item);
     // let relatedProducts = products.filter((obj) => obj.categoryId === product.categoryId && obj.id !== product.id).slice(0, 3);
-    return { item: item };
+    return { item, cost };
 };
 
 let mapDispatchToProps = (dispatch) => {

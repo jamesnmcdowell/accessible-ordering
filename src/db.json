@@ -55,6 +55,46 @@
             "slug": "cinnabon"
         }
     ],
+    "ingredientCosts": {
+        "bread": {
+            "sourdough": 0,
+            "wheat": 0,
+            "rye": 0,
+            "tortilla": 0,
+            "pretzel": 0.5,
+            "gluten free":1.5
+        },
+        "cheese": {
+            "parmesan": 1,
+            "mozzarella": 1,
+            "cheddar": 1,
+            "provolone": 1,
+            "swiss": 1
+        },
+        "meat": {
+            "ham": 1.50,
+            "salami": 1.50,
+            "bacon": 1.50,
+            "chicken": 1.50,
+            "pepperoni": 1.50,
+            "pastrami": 1.50,
+            "turkey": 1.50,
+            "roast beef": 1.50
+        },
+        "vegetable": {
+            "lettuce": 0,
+            "mushrooms": 0,
+            "onions": 0,
+            "jalapeno": 0,
+            "tomato": 0,
+            "guacamole": 1
+        },
+        "condiment": {
+            "mustard": 0,
+            "mayo": 0,
+            "ranch": 0
+        }
+    },
     "items": [
         {
             "id": 1,
@@ -72,33 +112,36 @@
                     "wheat": false,
                     "rye": false,
                     "tortilla": false,
-                    "pretzel": false
+                    "pretzel": false,
+                    "gluten free":false
                 },
                 "cheese": {
                     "parmesan": true,
                     "mozzarella": true,
-                    "cheddar": false,
+                    "cheddar": true,
                     "provolone": false,
                     "swiss": false
                 },
                 "meat": {
-                    "ham": true,
-                    "salami": true,
+                    "ham": false,
+                    "salami": false,
                     "bacon": false,
                     "chicken": false,
                     "pepperoni": false,
                     "pastrami": false,
-                    "turkey": false
+                    "turkey": false,
+                    "roast beef": true
                 },
                 "vegetable": {
                     "lettuce": true,
                     "mushrooms": false,
-                    "onions": false,
+                    "onions": true,
                     "jalapeno": false,
-                    "tomato": true
+                    "tomato": true,
+                    "guacamole": false
                 },
                 "condiment": {
-                    "mustard": true,
+                    "mustard": false,
                     "mayo": false,
                     "ranch": false
                 }
@@ -121,33 +164,36 @@
                     "wheat": false,
                     "rye": false,
                     "tortilla": false,
-                    "pretzel": false
+                    "pretzel": false,
+                    "gluten free": false
                 },
                 "cheese": {
-                    "parmesan": true,
-                    "mozzarella": true,
-                    "cheddar": false,
+                    "parmesan": false,
+                    "mozzarella": false,
+                    "cheddar": true,
                     "provolone": false,
                     "swiss": false
                 },
                 "meat": {
-                    "ham": true,
-                    "salami": true,
-                    "bacon": false,
+                    "ham": false,
+                    "salami": false,
+                    "bacon": true,
                     "chicken": false,
                     "pepperoni": false,
                     "pastrami": false,
-                    "turkey": false
+                    "turkey": false,
+                    "roast beef": true
                 },
                 "vegetable": {
-                    "lettuce": true,
+                    "lettuce": false,
                     "mushrooms": false,
                     "onions": false,
                     "jalapeno": false,
-                    "tomato": true
+                    "tomato": false,
+                    "guacamole": false
                 },
                 "condiment": {
-                    "mustard": true,
+                    "mustard": false,
                     "mayo": false,
                     "ranch": false
                 }
@@ -169,34 +215,37 @@
                     "wheat": false,
                     "rye": false,
                     "tortilla": false,
-                    "pretzel": false
+                    "pretzel": false,
+                    "gluten free": false
                 },
                 "cheese": {
-                    "parmesan": true,
+                    "parmesan": false,
                     "mozzarella": true,
                     "cheddar": false,
                     "provolone": false,
                     "swiss": false
                 },
                 "meat": {
-                    "ham": true,
-                    "salami": true,
+                    "ham": false,
+                    "salami": false,
                     "bacon": false,
                     "chicken": false,
                     "pepperoni": false,
                     "pastrami": false,
-                    "turkey": false
+                    "turkey": false,
+                    "roast beef": false
                 },
                 "vegetable": {
                     "lettuce": true,
                     "mushrooms": false,
                     "onions": false,
                     "jalapeno": false,
-                    "tomato": true
+                    "tomato": true,
+                    "guacamole": false
                 },
                 "condiment": {
                     "mustard": true,
-                    "mayo": false,
+                    "mayo": true,
                     "ranch": false
                 }
             }
@@ -208,7 +257,7 @@
             "image": "fiesta-chicken.jpg",
             "slug": "fiesta-chicken",
             "price": 5,
-            "description": "Tender roasted chicken breast with cheddar cheese, black olives, roasted red peppers",
+            "description": "Roasted chicken breast with cheddar cheese, lettuce, tomato, onions, and chipotle mayonnaise.",
             "calories": "820",
             "badges": [],
             "ingredients": {
@@ -217,34 +266,37 @@
                     "wheat": false,
                     "rye": false,
                     "tortilla": false,
-                    "pretzel": false
+                    "pretzel": false,
+                    "gluten free": false
                 },
                 "cheese": {
-                    "parmesan": true,
-                    "mozzarella": true,
-                    "cheddar": false,
+                    "parmesan": false,
+                    "mozzarella": false,
+                    "cheddar": true,
                     "provolone": false,
                     "swiss": false
                 },
                 "meat": {
-                    "ham": true,
-                    "salami": true,
+                    "ham": false,
+                    "salami": false,
                     "bacon": false,
-                    "chicken": false,
+                    "chicken": true,
                     "pepperoni": false,
                     "pastrami": false,
-                    "turkey": false
+                    "turkey": false,
+                    "roast beef": false
                 },
                 "vegetable": {
                     "lettuce": true,
                     "mushrooms": false,
-                    "onions": false,
+                    "onions": true,
                     "jalapeno": false,
-                    "tomato": true
+                    "tomato": true,
+                    "guacamole": false
                 },
                 "condiment": {
-                    "mustard": true,
-                    "mayo": false,
+                    "mustard": false,
+                    "mayo": true,
                     "ranch": false
                 }
             }
@@ -265,34 +317,37 @@
                     "wheat": false,
                     "rye": false,
                     "tortilla": false,
-                    "pretzel": false
+                    "pretzel": false,
+                    "gluten free": false
                 },
                 "cheese": {
                     "parmesan": true,
                     "mozzarella": true,
-                    "cheddar": false,
+                    "cheddar": true,
                     "provolone": false,
                     "swiss": false
                 },
                 "meat": {
-                    "ham": true,
-                    "salami": true,
+                    "ham": false,
+                    "salami": false,
                     "bacon": false,
                     "chicken": false,
                     "pepperoni": false,
                     "pastrami": false,
-                    "turkey": false
+                    "turkey": false,
+                    "roast beef": false
                 },
                 "vegetable": {
                     "lettuce": true,
                     "mushrooms": false,
-                    "onions": false,
+                    "onions": true,
                     "jalapeno": false,
-                    "tomato": true
+                    "tomato": true,
+                    "guacamole": false
                 },
                 "condiment": {
-                    "mustard": true,
-                    "mayo": false,
+                    "mustard": false,
+                    "mayo": true,
                     "ranch": false
                 }
             }
@@ -313,33 +368,36 @@
                     "wheat": false,
                     "rye": false,
                     "tortilla": false,
-                    "pretzel": false
+                    "pretzel": false,
+                    "gluten free": false
                 },
                 "cheese": {
                     "parmesan": true,
                     "mozzarella": true,
-                    "cheddar": false,
+                    "cheddar": true,
                     "provolone": false,
                     "swiss": false
                 },
                 "meat": {
-                    "ham": true,
-                    "salami": true,
-                    "bacon": false,
+                    "ham": false,
+                    "salami": false,
+                    "bacon": true,
                     "chicken": false,
                     "pepperoni": false,
                     "pastrami": false,
-                    "turkey": false
+                    "turkey": true,
+                    "roast beef": false
                 },
                 "vegetable": {
                     "lettuce": true,
                     "mushrooms": false,
                     "onions": false,
                     "jalapeno": false,
-                    "tomato": true
+                    "tomato": false,
+                    "guacamole": false
                 },
                 "condiment": {
-                    "mustard": true,
+                    "mustard": false,
                     "mayo": false,
                     "ranch": false
                 }
@@ -361,30 +419,33 @@
                     "wheat": false,
                     "rye": false,
                     "tortilla": false,
-                    "pretzel": false
+                    "pretzel": false,
+                    "gluten free": false
                 },
                 "cheese": {
-                    "parmesan": true,
+                    "parmesan": false,
                     "mozzarella": true,
                     "cheddar": false,
                     "provolone": false,
                     "swiss": false
                 },
                 "meat": {
-                    "ham": true,
-                    "salami": true,
+                    "ham": false,
+                    "salami": false,
                     "bacon": false,
                     "chicken": false,
                     "pepperoni": false,
                     "pastrami": false,
-                    "turkey": false
+                    "turkey": true,
+                    "roast beef": false
                 },
                 "vegetable": {
                     "lettuce": true,
                     "mushrooms": false,
-                    "onions": false,
+                    "onions": true,
                     "jalapeno": false,
-                    "tomato": true
+                    "tomato": true,
+                    "guacamole": true
                 },
                 "condiment": {
                     "mustard": true,
@@ -409,33 +470,36 @@
                     "wheat": false,
                     "rye": false,
                     "tortilla": false,
-                    "pretzel": false
+                    "pretzel": false,
+                    "gluten free": false
                 },
                 "cheese": {
                     "parmesan": true,
                     "mozzarella": true,
-                    "cheddar": false,
+                    "cheddar": true,
                     "provolone": false,
                     "swiss": false
                 },
                 "meat": {
-                    "ham": true,
+                    "ham": false,
                     "salami": true,
                     "bacon": false,
                     "chicken": false,
                     "pepperoni": false,
                     "pastrami": false,
-                    "turkey": false
+                    "turkey": true,
+                    "roast beef": false
                 },
                 "vegetable": {
                     "lettuce": true,
                     "mushrooms": false,
                     "onions": false,
                     "jalapeno": false,
-                    "tomato": true
+                    "tomato": false,
+                    "guacamole": false
                 },
                 "condiment": {
-                    "mustard": true,
+                    "mustard": false,
                     "mayo": false,
                     "ranch": false
                 }
