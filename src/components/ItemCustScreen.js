@@ -12,8 +12,7 @@ class ItemCustScreen extends React.Component {
     constructor (props) {
         super(props);
         let catOrder = Object.keys(props.item.ingredients)
-        
-        
+          
         this.state = {
             defaultIngredients: Object.keys(props.item.ingredients).reduce((a, c) => (
                 [...a, ...Object.keys(props.item.ingredients[c]).filter((cc) => (props.item.ingredients[c][cc]))]
@@ -28,15 +27,11 @@ class ItemCustScreen extends React.Component {
         };
     }
    
-
-
     componentDidUpdate (prevProps) {
         if(this.state.focusCat) {
             document.querySelector(`#${this.state.focusCat}_0_input`).focus();
             this.setState({focusCat: null});
-
         }
-
     }
 
     openCatCust (cat) {
@@ -70,13 +65,20 @@ class ItemCustScreen extends React.Component {
     }
 
     addToCart () {
+        let current = Object.keys(this.state.curIngredients).reduce((a, c) => (
+            [...a, ...Object.keys(this.state.curIngredients[c]).filter((cc) => (this.state.curIngredients[c][cc]))]
+        ), []);
+        let defaultIngreds = new Set([...this.state.defaultIngredients, 'small', 'medium', 'large']);
+        let added = current.filter( (c) => (!defaultIngreds.has(c)));
+        console.log(added);
+        let item = { ...this.props.item, ingredients: this.state.curIngredients };
+        let size = Object.keys(this.state.curIngredients.size).filter((c) => { return this.state.curIngredients.size[c] } )[0];
+        console.log(size);
         let payload = {
             type: "ADD_TO_CART",
-            payload: {...this.props.item, ingredients: this.state.curIngredients}
+            payload: {item, size, added }
         };
-
         console.dir(payload);
-        
         this.props.dispatch(payload); 
         this.props.history.push('/'); 
     }
@@ -115,20 +117,31 @@ class ItemCustScreen extends React.Component {
                                     <fieldset>
                                         <legend aria-label={`${c} customizations`} tabIndex="0" id={`${c}_legend`}> {c}</legend>
                                     {
-                                    Object.keys(item.ingredients[c]).sort()
+                                    Object.keys(item.ingredients[c]).sort((a,b) => {
+                                        switch (a) {
+                                            case 'small':
+                                                return (b === 'small') ? 0 : -1;
+                                            case 'medium':
+                                                return (b === 'medium') ? 0 : ((b === 'small') ? 1 : -1);
+                                            case 'large':
+                                                return (b === 'large') ? 0 : 1;
+                                            default:
+                                                return a.localeCompare(b);
+                                        }
+                                        })
                                           .map((cc, i) => (
                                               <div>
                                                 <input 
                                                     id={`${c}_${i}_input`}
                                                     aria-label={`${cc}${(cost[c][cc] > 0 && !(defaultIngredients.includes(cc))) ? ` (+ ${(cost[c][cc])} dollars)` : ''}`}
                                                     role="checkbox"  
-                                                    type={(c === 'bread')? 'radio' : 'checkbox'} 
+                                                    type={(c === 'bread' || c === 'size' )? 'radio' : 'checkbox'} 
                                                     name={c} 
                                                     value={cc} 
                                                     defaultChecked={(item.ingredients[c][cc])? true : false}  
-                                                    onClick={(c === 'bread') ? this.selectIngredient.bind(this, c, cc) : this.toggleIngredient.bind(this, c, cc)}
+                                                    onClick={(c === 'bread' || c === 'size') ? this.selectIngredient.bind(this, c, cc) : this.toggleIngredient.bind(this, c, cc)}
                                                 />
-                                                  <label htmlFor={cc}>{`${cc}${(cost[c][cc] > 0 && !(defaultIngredients.includes(cc) )) ? ` (+$${(cost[c][cc])})` : ''}`}</label>               
+                                                  <label htmlFor={cc}>{`${cc}${(cost[c][cc] > 0 && (!(defaultIngredients.includes(cc) ) || (cc === 'small'))) ? ` (+$${(cost[c][cc])})` : ''}`}</label>               
                                               </div>
                                         ))
                                     }

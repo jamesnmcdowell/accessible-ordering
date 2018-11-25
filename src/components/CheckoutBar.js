@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import CartItem from './CartItem';
+import { Link } from 'react-router-dom';
 
 let CheckoutBar = ({ cart, total }) =>
     <CheckoutContainer>
@@ -29,7 +30,7 @@ let CheckoutBar = ({ cart, total }) =>
             <p> Estimated Total </p>
             <p> ${(total.sum + total.tax).toFixed(2)} </p>
         </FlexBetween>
-        <Button> Checkout </Button>
+        <Button to="/checkout" > Checkout </Button>
     </CheckoutContainer>
 export default CheckoutBar;
 
@@ -48,7 +49,7 @@ let CheckoutContainer = styled.div`
     padding: 2em;
 `;
 
-let Button = styled.button`
+let Button = styled.a`
     flex: 1;
     text-align: center;
     font-size: 16px;

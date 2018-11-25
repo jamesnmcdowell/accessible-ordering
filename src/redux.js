@@ -7,7 +7,10 @@ const initialState = {
     items: data.items,
     categories: data.categories,
     cart: data.cart,
-    cost: data.ingredientCosts
+    cost: data.ingredientCosts,
+    costMap: Object.keys(data.ingredientCosts).reduce((a,c)=> (
+        {...a, ...data.ingredientCosts[c]}
+    ), {})
 
 };
 
@@ -17,18 +20,36 @@ let reducer = (oldState = initialState, action) => {
     let { cart } = oldState;
     switch (action.type) {
         case 'ADD_TO_CART': {
-            let itemMatch = cart.find((item) => item.id === payload.id);
-            let itemsNotMatch = cart.filter((item) => item.id !== payload.id);
-            let newCart;
-            if (itemMatch) {
-                let itemMod = { ...payload, quantity: itemMatch.quantity + 1 };
-                newCart = itemsNotMatch.concat([itemMod]);
+            let {item, size, added } = payload;
+            if (size) {
+                let sizeObj = {
+                    "small": false,
+                    "medium": false,
+                    "large": false
+                };
+                sizeObj[size] = true;
+                item.ingredients.size = sizeObj;
+                item.price = oldState.cost.size[size];
             }
-            else {
-                let itemMod = { ...payload, quantity: 1 };
-                newCart = cart.concat([itemMod]);
+            if (added) {
+                let costIncrease = 0;
+                added.forEach( (c) => {
+                    costIncrease += oldState.costMap[c];
+                })
+                item.price += costIncrease;
             }
-            return { ...oldState, cart: newCart };
+            // let itemMatch = cart.find((item) => item.id === item.id);
+            // let itemsNotMatch = cart.filter((item) => item.id !== item.id);
+            // let newCart;
+            // if (itemMatch) {
+            //     let itemMod = { ...item, quantity: itemMatch.quantity + 1 };
+            //     newCart = itemsNotMatch.concat([itemMod]);
+            // }
+            // else {
+            //     let itemMod = { ...item, quantity: 1 };
+            //     newCart = cart.concat([itemMod]);
+            // }
+            return { ...oldState, cart: [...oldState.cart,item]};
             break;
         }
         default:
@@ -40,12 +61,6 @@ let store = createStore(reducer,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
-let mapStateToProps = (state) => {
-    return {  };
-};
-let mapDispatchToProps = (dispatch) => {
-    return { dispatch: dispatch };
-};
 export default store;
 
 

@@ -56,6 +56,11 @@
         }
     ],
     "ingredientCosts": {
+        "size": {
+            "small": 6,
+            "medium": 7,
+            "large": 11
+        },
         "bread": {
             "sourdough": 0,
             "wheat": 0,
@@ -102,11 +107,17 @@
             "categoryId": 1,
             "image": "angus-roast-beef.jpg",
             "slug": "angus-roast-beef",
+            "priceRange":"",
             "price": 6,
             "description":"Angus roast beef with cheddar, mozzarella & Parmesan cheeses, dill slices, red onion, lettuce, tomato",
             "calories":"820",
             "badges": [],
             "ingredients":{
+                "size": {
+                    "small": true,
+                    "medium": false,
+                    "large": false
+                },
                 "bread": {
                     "sourdough":true,
                     "wheat": false,
@@ -155,10 +166,15 @@
             "image": "beef-bacon.jpg",
             "slug": "beef-bacon",
             "price": 7,
-            "description": "Shaved Angus roast beef with smoked cheddar cheese, bacon,",
+            "description": "Shaved Angus roast beef with smoked cheddar cheese, bacon, Chipotle mayonnaise.",
             "calories": "820",
             "badges": [],
             "ingredients": {
+                "size": {
+                    "small": true,
+                    "medium": false,
+                    "large": false
+                },
                 "bread": {
                     "sourdough": true,
                     "wheat": false,
@@ -210,6 +226,11 @@
             "calories": "820",
             "badges": ["veg", "gluten"],
             "ingredients": {
+                "size": {
+                    "small": true,
+                    "medium": false,
+                    "large": false
+                },
                 "bread": {
                     "sourdough": true,
                     "wheat": false,
@@ -261,6 +282,11 @@
             "calories": "820",
             "badges": [],
             "ingredients": {
+                "size": {
+                    "small": true,
+                    "medium": false,
+                    "large": false
+                },
                 "bread": {
                     "sourdough": true,
                     "wheat": false,
@@ -312,6 +338,11 @@
             "calories": "820",
             "badges": ["veg"],
             "ingredients": {
+                "size": {
+                    "small": true,
+                    "medium": false,
+                    "large": false
+                },
                 "bread": {
                     "sourdough": true,
                     "wheat": false,
@@ -363,6 +394,11 @@
             "calories": "820",
             "badges": [],
             "ingredients": {
+                "size": {
+                    "small": true,
+                    "medium": false,
+                    "large": false
+                },
                 "bread": {
                     "sourdough": true,
                     "wheat": false,
@@ -414,6 +450,11 @@
             "calories": "820",
             "badges": [],
             "ingredients": {
+                "size": {
+                    "small": true,
+                    "medium": false,
+                    "large": false
+                },
                 "bread": {
                     "sourdough": true,
                     "wheat": false,
@@ -465,6 +506,11 @@
             "calories": "820",
             "badges": [],
             "ingredients": {
+                "size": {
+                    "small": true,
+                    "medium": false,
+                    "large": false
+                },
                 "bread": {
                     "sourdough": true,
                     "wheat": false,

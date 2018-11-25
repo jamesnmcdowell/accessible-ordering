@@ -10,7 +10,7 @@ let Cart = ({ cart, total }) =>
 
 let mapStateToProps = (state) => {
     let { categories, items, cart } = state;
-    let sum = cart.reduce((total, product) => total + (product.price * product.quantity), 0);
+    let sum = cart.reduce((a, c) => a + c.price, 0)
     let shipping = sum >= 100 ? 0 : 10;
     let tax = (sum * 0.08);
     return { cart: cart, total: { sum: sum, shipping: shipping, tax: tax } };
