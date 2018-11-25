@@ -2,33 +2,55 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
+import { Button, Wrapper, Menu, MenuItem } from 'react-aria-menubutton';
+import DropdownButton from './DropdownButton';
 
 
-let Item = ({ item, match, dispatch, history }) =>            
+let Item = ({ item, match, dispatch, history, costMap }) =>            
     <ItemContainer>
-        <Title>{item.name}</Title>
-        <Img alt={item.name} src={require(`../assets/${match.params.categoryName}/${item.image}`)} />
         <FlexSeparate>
-            <p>{item.calories} calories</p>
-            <Flex>
+        <Title>{item.name}</Title>
+        <Flex>
             {item.badges.map((item, i) =>
                 <Badge key={`${i}_${item}`}> {item}</Badge>
             )}
-            </Flex>
+        </Flex>
+        </FlexSeparate>
+        <Img alt={item.name} src={require(`../assets/${match.params.categoryName}/${item.image}`)} />
+        <FlexSeparate>
+            <p>{item.calories} calories</p>
+            <p> {(match.params.categoryName === "sandwich") ? `$${costMap.small} - $${costMap.large}` : item.price}  </p>
+           
         </FlexSeparate>
         <p>{item.description}</p>
         <GridSeparate>
-            <Button aria-label={`customize ${item.name} ${match.params.categoryName}`} role="button" tabIndex="0" alt={`${item.name}`} to={`/categories/${match.params.categoryName}/${item.id}`} > Customize </Button> 
-            <Button2 aria-live="assertive" onClick={() => { dispatch({ type: "ADD_TO_CART", payload: item }); history.push('/'); }} aria-label={`add to cart ${item.name} `} role="button" tabIndex="0"> Add to Cart</Button2>
+            <ButtonStyle aria-label={`customize ${item.name} ${match.params.categoryName}`} role="button" tabIndex="0" alt={`${item.name}`} to={`/categories/${match.params.categoryName}/${item.id}`} > Customize </ButtonStyle> 
+            {match.params.categoryName !== "sandwich"
+                ?
+            <Button2 aria-live="assertive" onClick={() => { 
+                dispatch({ type: "ADD_TO_CART", payload: {item} }); 
+                history.push('/'); 
+            }} aria-label={`add to cart ${item.name} `} role="button" tabIndex="0"> Add to Cart</Button2>
+            :
+                <DropdownButton options={['small', 'medium', 'large']} cost={['small', 'medium', 'large'].map(c => costMap[c])} onSelect={(size) => {
+                dispatch({ type: "ADD_TO_CART", payload: {item, size} });
+                history.push('/');
+            }}/>
+        }
         </GridSeparate>
     </ItemContainer>
 
+let mapStateToProps = (state, props) => {
+    let { costMap } = state;
+    return { costMap };
+};
 
 let mapDispatchToProps = (dispatch) => {
     return { dispatch: dispatch };
 };
 
 let ItemState = connect(
+    mapStateToProps,
     mapDispatchToProps
 )(Item);
 
@@ -79,7 +101,7 @@ let GridSeparate = styled.div`
     grid-gap: 2rem;
 `;
 
-let Button = styled(Link)`
+let ButtonStyle = styled(Link)`
     flex: 1;
     text-align: center;
     font-size: 16px;

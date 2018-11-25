@@ -14,11 +14,8 @@ let Header = ({match}) =>
                 <NavLink aria-label={`Homepage `} to="/" >
                     <Span> LOGO </Span>
                 </NavLink>
-                <button >
-                    Ask a Question
-                </button>
                 <NavLink to="/cart" >
-                    <Span> Cart[<CartBadge />] </Span>
+                    <Span> <CartBadge /> </Span>
                 </NavLink>
             </MenuLinks>
         </Container>
