@@ -162,8 +162,8 @@ a:focus, input:focus, button:focus, select:focus {
 
 .AriaMenuButton-menuItem:hover,
 .AriaMenuButton-menuItem:focus {
-  background-color: #4183C4;
-  color: #E75721;
+  background-color: #5F5B5C;
+  color: white;
 }
 
 .AriaMenuButton-menuItem.is-selected {
