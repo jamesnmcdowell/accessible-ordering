@@ -7,9 +7,10 @@ import categoryHero from '../assets/category-hero.png';
 import { connect } from 'react-redux';
 
 
-let ItemScreen = ({ items, match, history }) =>
+let ItemScreen = ({ items, match, history, catName }) =>
     <div>
         <Container vert>
+            <MainTitle>{catName} </MainTitle>
             <AutoGrid>
                 {items.map((item, i) =>
                     <Item history={history} item={item} match={match} key={`${i}_${item}`} />
@@ -25,7 +26,7 @@ let mapStateToProps = (state, props) => {
     let categoryName = match.params.categoryName;
     let currentCategory = categories.find((obj) => obj.slug === categoryName);
     let filteredByCategory = items.filter((obj) => obj.categoryId === currentCategory.id);
-    return { items: filteredByCategory, categories: state.categories };
+    return { items: filteredByCategory, categories: state.categories, catName: currentCategory.name };
 };
 
 let ItemScreenState = connect(
@@ -53,7 +54,12 @@ let AutoGrid = styled.div`
 `;
 let MainTitle = styled.h1`
     text-align: center;
-    
+    margin: 0;
+    font-size: 4rem;
+    text-transform: uppercase;
+    font-family: 'Oregano', cursive;   
+    font-family: 'Advent Pro', sans-serif;
+    margin-bottom: 6rem;
 `;
 
 

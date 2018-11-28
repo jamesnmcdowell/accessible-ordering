@@ -32,7 +32,7 @@ let Item = ({ item, match, dispatch, history, costMap }) =>
                 history.push('/'); 
             }} aria-label={`add to cart ${item.name} `} role="button" tabIndex="0"> Add to Cart</Button2>
             :
-                <DropdownButton options={['small', 'medium', 'large']} cost={['small', 'medium', 'large'].map(c => costMap[c])} onSelect={(size) => {
+                <DropDownButtonStyled options={['small', 'medium', 'large']} cost={['small', 'medium', 'large'].map(c => costMap[c])} onSelect={(size) => {
                 dispatch({ type: "ADD_TO_CART", payload: {item, size} });
                 history.push('/');
             }}/>
@@ -79,6 +79,8 @@ let Img = styled.img`
 `;
 let ItemContainer = styled.div`
     position: relative;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    padding: 2rem;
 `;
 
 let FlexSeparate = styled.div`
@@ -121,13 +123,19 @@ let Button2 = styled.button`
     font-size: 16px;
     font-weight: 600;
     padding: 1rem;
-    background-color: #F36C3E;
+    background-color: #5F5B5C;
     color: white;
     &:hover {
     }
     span {
         text-transform: uppercase;
     }
+`;
+let DropDownButtonStyled = styled(DropdownButton)`
+    button {
+        background-color: #red
+    }
+    
 `;
 
 

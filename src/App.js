@@ -93,7 +93,10 @@ a:focus, input:focus, button:focus, select:focus {
   font-size: 16px;
   font-weight: 600;
   padding: 1rem;
-  background-color: #F36C3E;
+  background-color: #FFA310;
+  background-color: #5F5B5C;
+
+
   color: white;
   height: 100%;
   width: 100%;
@@ -111,9 +114,6 @@ a:focus, input:focus, button:focus, select:focus {
   margin-left: 3px;
   position: relative;
   top: 3px;
-  border-color: currentColor transparent transparent;
-  border-width: 5px 4px;
-  border-style: solid;
 }
 
 .AriaMenuButton-trigger:hover,
