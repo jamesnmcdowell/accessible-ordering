@@ -32,27 +32,7 @@ let NavBar = styled.div`
     z-index:999;
 
 `;
-let FlexNav = styled.div`
-    display: flex;
-    height: 100%;
-    padding: 0 10px;
-    background-color: white;
-    ${media.tablet`
-    padding: 0 20px; 
-    `}
-`;
 
-let LogoContainer = styled.div`
-    display: flex;
-    align-items: center;
-    padding-right: 10px; 
-    z-index: 1;
-    flex: 0 0 auto;
-    ${media.desktop`
-    display: block;
-    padding-right: 10px; 
-    `}
-`;
 let MenuLinks = styled.div`
     display: flex;
     flex: 1 1 auto;

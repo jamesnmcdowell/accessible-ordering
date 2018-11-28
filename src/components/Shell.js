@@ -2,10 +2,14 @@ import React, { Component } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import styled from 'styled-components';
+import {
+    withRouter
+} from 'react-router-dom';
 
 class Shell extends Component {
     
     componentDidUpdate(prevProps) {
+        console.log(withRouter);
         console.log(this.props);
         if (this.props.location !== prevProps.location) {
             document.querySelector(".scroll-grabber").scrollTop = 0;
@@ -15,11 +19,13 @@ class Shell extends Component {
     render() {
         let {children, match} = this.props;
         return (
-            <Site>
+            <Site >
                 <SiteHeader match={match} />
-                <SiteContent className="scroll-grabber">
+                <Grab className="scroll-grabber" >
+                <SiteContent  >
                     {children}
                 </SiteContent>
+                </Grab>
                 <SiteFooter />
             </Site>
         )
@@ -27,29 +33,88 @@ class Shell extends Component {
 }
     
 
-export default Shell;
+export default  withRouter(Shell);
 
 let Site = styled.div`
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    min-height 100vh;
+
+`;
+let Grab = styled.div`
+    overflow: scroll;
+    height 100%;
 `;
 
 let SiteHeader = styled(Header) `
-    flex: 0 0 auto;
+
 `;
 
 let SiteContent = styled.div`
-    flex: 1 0 auto;
     width: 100%;
    
 `;
 
 let SiteFooter = styled(Footer) `
-    flex: 0 0 auto;
 `;
 
 
 
     
+
+
+
+
+// import React, { Component } from 'react';
+// import Header from './Header';
+// import Footer from './Footer';
+// import styled from 'styled-components';
+// import {
+//     withRouter
+// } from 'react-router-dom';
+
+// class Shell extends Component {
+
+//     componentDidUpdate(prevProps) {
+//         console.log(this.props);
+//         if (this.props.location !== prevProps.location) {
+//             document.querySelector(".scroll-grabber").scrollTop = 0;
+//         }
+//     }
+
+//     render() {
+//         let { children, match } = this.props;
+//         return (
+//             <Site className="scroll-grabber">
+//                 <SiteHeader className="scroll-grabber" match={match} />
+//                 {children}
+//                 <SiteFooter />
+//             </Site>
+//         )
+//     }
+// }
+
+
+// export default withRouter(Shell);
+
+// let Site = styled.div`
+//     height: 100vh;
+//     overflow: scroll;
+// `;
+
+// let SiteHeader = styled(Header) `
+//     flex: 0 0 auto;
+// `;
+
+// let SiteContent = styled.div`
+//     flex: 1 0 auto;
+//     width: 100%;
+   
+// `;
+
+// let SiteFooter = styled(Footer) `
+//     flex: 0 0 auto;
+// `;
+
+
+
+
 

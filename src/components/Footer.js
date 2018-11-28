@@ -12,6 +12,7 @@ let Footer = () =>
                 {/* <a name="linkedin" href="https://www.linkedin.com/in/jamesnmcdowell/" target="_blank">
                     Ask a Question
                 </a> */}
+                footer
             </FlexContainer>
         </Container>
     </FooterStyled>
