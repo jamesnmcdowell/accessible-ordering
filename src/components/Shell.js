@@ -12,14 +12,17 @@ class Shell extends Component {
         console.log(withRouter);
         console.log(this.props);
         if (this.props.location !== prevProps.location) {
+            let site = document.querySelector(".site");
+            site.style.height = '100vh';
             document.querySelector(".scroll-grabber").scrollTop = 0;
+            site.style.height = 'auto';
         }
     }
 
     render() {
         let {children, match} = this.props;
         return (
-            <Site >
+            <Site className="site" >
                 <SiteHeader match={match} />
                 <Grab className="scroll-grabber" >
                 <SiteContent  >
@@ -37,6 +40,7 @@ export default  withRouter(Shell);
 
 let Site = styled.div`
     min-height 100vh;
+    height: auto;
 
 `;
 let Grab = styled.div`
