@@ -49,7 +49,7 @@ let CheckoutContainer = styled.div`
     padding: 2em;
 `;
 
-let Button = styled.a`
+let Button = styled(Link)`
     flex: 1;
     text-align: center;
     font-size: 16px;

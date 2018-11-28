@@ -26,6 +26,8 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Nunito', sans-serif;
     width: 100%;
     height: 100%;
+    
+    
   }
   p, span, li {
     letter-spacing: .02rem;
@@ -43,11 +45,17 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 300;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Dosis', sans-serif;
+    font-family: 'K2D', sans-serif;
+    font-family: 'Sarala', sans-serif;
+    font-family: 'Kanit', sans-serif;
   }
+
   h2 {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Kanit', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: .08rem;
   }
 
   ul, ol {

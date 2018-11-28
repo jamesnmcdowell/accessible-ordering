@@ -51,5 +51,11 @@ let Hero = styled.div`
 let MainTitle = styled.h1`
     text-align: center;
     margin: 0;
+    font-size: 4rem;
+    text-transform: uppercase;
+    font-family: 'Oregano', cursive;   
+    font-family: 'Advent Pro', sans-serif;
+
+
     
 `;

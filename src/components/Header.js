@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { media, Container } from './Media';
 import styled from 'styled-components';
 import CartBadge from './CartBadge';
+import Underline from '../assets/selector.svg';
+
 
 let Header = ({match}) =>
     <NavBar>
@@ -91,6 +93,24 @@ let NavLink = styled(Link) `
 
 let Span = styled.span`
     font-size:1.2rem;
+    font-weight: 600;
+    letter-spacing: .08rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    &:hover::after {
+        position: absolute;
+        outline: none;
+        content:  url(${Underline});
+        cursor: pointer;
+        text-decoration: none;
+        top: 15px;
+    }
+    
+
+
+
     ${media.phone`
     font-size:1.3rem;
     `}

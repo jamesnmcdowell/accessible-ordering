@@ -93,7 +93,7 @@ class ItemCustScreen extends React.Component {
         return (
             <Container2>
                 <div>
-                    <h1> {item.name} </h1>
+                    <Name> {item.name} </Name>
                     <Gridlist>
                         {catOrder.map((c, i) =>
                             <Section key={`custcat${c}`}>
@@ -195,15 +195,18 @@ let Gridlist = styled.div`
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 3rem;
-    margin-bottom: 4rem;
-    
+    margin-bottom: 4rem; 
 `;
+let Name = styled.h1`
+    text-transform: uppercase;
+`;
+
 let Section = styled.div`
     border: 2px #828282 solid;
     padding 2rem;
 `;
 let CatTitle = styled.h2`
-    text-transform:capitalize;
+    text-transform: uppercase;
 `;
 let SelectedSpan = styled.p`
     font-weight: 300;
@@ -228,5 +231,10 @@ let Button = styled.button `
     }
 `;
 
-// .replace(/\b\w/g, l => l.toUpperCase())
-    // box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+
+
+
+
+
+
