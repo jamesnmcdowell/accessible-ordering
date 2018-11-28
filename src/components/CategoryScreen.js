@@ -13,7 +13,7 @@ let CategoryScreen = ({ products, match }) =>
             <MainTitle>
                 Menu Categories
             </MainTitle>
-            <img aria-hidden="true" src={categoryHero} />
+            {/* <img aria-hidden="true" src={categoryHero} /> */}
             </Container2>
         </Hero>
         <Container2 vert>
@@ -51,5 +51,8 @@ let Hero = styled.div`
 let MainTitle = styled.h1`
     text-align: center;
     margin: 0;
-    
+    font-size: 4rem;
+    text-transform: uppercase;
+    font-family: 'Oregano', cursive;   
+    font-family: 'Advent Pro', sans-serif;
 `;

@@ -86,14 +86,12 @@ class ItemCustScreen extends React.Component {
     render () {
         let {match, item, cost} = this.props,
             { catCustOpen, curIngredients, catOrder, defaultIngredients } = this.state;
-            console.log(item);
-            console.log(defaultIngredients);
 
 
         return (
             <Container2>
                 <div>
-                    <h1> {item.name} </h1>
+                    <Name> {item.name} </Name>
                     <Gridlist>
                         {catOrder.map((c, i) =>
                             <Section key={`custcat${c}`}>
@@ -130,19 +128,23 @@ class ItemCustScreen extends React.Component {
                                         }
                                         })
                                           .map((cc, i) => (
-                                              <div>
+                                              <div aria-label={`${cc}${(cost[c][cc] > 0 && !(defaultIngredients.includes(cc))) ? ` (+ ${(cost[c][cc])} dollars)` : ''}`}>
                                                 <input 
                                                     id={`${c}_${i}_input`}
                                                     aria-label={`${cc}${(cost[c][cc] > 0 && !(defaultIngredients.includes(cc))) ? ` (+ ${(cost[c][cc])} dollars)` : ''}`}
+                                                    aria-labelledby={`${cc}${(cost[c][cc] > 0 && !(defaultIngredients.includes(cc))) ? ` (+ ${(cost[c][cc])} dollars)` : ''}`}
                                                     role="checkbox"  
-                                                    type={(c === 'bread' || c === 'size' )? 'radio' : 'checkbox'} 
+                                                    type={(c === 'bread' || c === 'size' ) ? 'radio' : 'checkbox'} 
                                                     name={c} 
                                                     value={cc} 
+                                                    tabIndex="0"
+                                                    aria-checked={(item.ingredients[c][cc]) ? "true" : "false" }  
                                                     defaultChecked={(item.ingredients[c][cc])? true : false}  
                                                     onClick={(c === 'bread' || c === 'size') ? this.selectIngredient.bind(this, c, cc) : this.toggleIngredient.bind(this, c, cc)}
                                                 />
-                                                  <label htmlFor={cc}>{`${cc}${(cost[c][cc] > 0 && (!(defaultIngredients.includes(cc) ) || (cc === 'small'))) ? ` (+$${(cost[c][cc])})` : ''}`}</label>               
-                                              </div>
+                                                  <label aria-label={`${cc}${(cost[c][cc] > 0 && !(defaultIngredients.includes(cc))) ? ` (+ ${(cost[c][cc])} dollars)` : ''}`}
+                                                         htmlFor={`${c}_${i}_input`}>{`${cc}${(cost[c][cc] > 0 && (!(defaultIngredients.includes(cc) ) || (cc === 'small'))) ? ` (+$${(cost[c][cc])})` : ''}`}</label>               
+                                              </div>    
                                         ))
                                     }
                                     </fieldset>
@@ -195,15 +197,18 @@ let Gridlist = styled.div`
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 3rem;
-    margin-bottom: 4rem;
-    
+    margin-bottom: 4rem; 
 `;
+let Name = styled.h1`
+    text-transform: uppercase;
+`;
+
 let Section = styled.div`
     border: 2px #828282 solid;
     padding 2rem;
 `;
 let CatTitle = styled.h2`
-    text-transform:capitalize;
+    text-transform: uppercase;
 `;
 let SelectedSpan = styled.p`
     font-weight: 300;
@@ -227,6 +232,123 @@ let Button = styled.button `
         text-transform:capitalize;
     }
 `;
+let Input = styled.input `
+    border: 0                      !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    -webkit-clip-path: inset(50%) !important;
+            clip-path: inset(50%) !important;
+    height: 1px                    !important;
+    overflow: hidden               !important;
+    padding: 0                     !important;
+    position: absolute             !important;
+    width: 1px                     !important;
+    white-space: nowrap            !important;
 
-// .replace(/\b\w/g, l => l.toUpperCase())
-    // box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    &:focus + label::before {
+        box-shadow: 0 0 0 2px rgba(51, 51, 51, 0.4) !important;
+    }
+    &:hover + label::before{
+        border-color: #000;    
+    }
+    &:active + label::before{
+        transition-duration: 0;    
+    }
+    + label{
+        position: relative;
+        padding: 6px;
+        -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+                user-select: none;   
+    }
+    + label::before{
+        background-color: #fff;
+        border: 1px solid #444;
+        box-sizing: content-box;
+        content: '';
+        color: #444;
+        margin-right: 6px;
+        top: 50%;
+        left: 0;
+        width: 24px;
+        height: 24px;
+        display: inline-block;
+        vertical-align: middle;  
+    }
+    + label::after{
+        box-sizing: content-box;
+        content: '';
+        background-color: #444;
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        width: 18px;
+        height: 18px;
+        margin-top: -9px;
+        -webkit-transform: scale(0);
+                transform: scale(0);
+        -webkit-transform-origin: 50%;
+                transform-origin: 50%;
+        transition: -webkit-transform 200ms ease-out;
+        transition: transform 200ms ease-out;
+        transition: transform 200ms ease-out, -webkit-transform 200ms ease-out;  
+    }
+
+`;
+
+
+
+
+
+
+// [type="checkbox"] + label::before, [type="checkbox"] + label::after {
+//   border-radius: 0;
+// }
+// [type="checkbox"] + label::after {
+//   background-color: transparent;
+//   top: 50%;
+//   left: calc(6px + 1px + 24px/5);
+//   width: 12px;
+//   height: 4.8px;
+//   margin-top: calc(24px / -2 / 2 * 0.8);
+//   border-style: solid;
+//   border-color: #444;
+//   border-width: 0 0 3px 3px;
+//   border-radius: 0;
+//   -o-border-image: none;
+//      border-image: none;
+//   -webkit-transform: rotate(-45deg) scale(0);
+//           transform: rotate(-45deg) scale(0);
+//   transition: none;
+// }
+// [type="checkbox"]:checked + label::after {
+//   content: '';
+//   -webkit-transform: rotate(-45deg) scale(1);
+//           transform: rotate(-45deg) scale(1);
+//   transition: -webkit-transform 200ms ease-out;
+//   transition: transform 200ms ease-out;
+//   transition: transform 200ms ease-out, -webkit-transform 200ms ease-out;
+// }
+
+// [type="radio"] + label::before, [type="radio"] + label::after {
+//   border-radius: 50%;
+// }
+// [type="radio"]:checked:active + label::before, [type="radio"]:checked:focus + label::before {
+//   -webkit-animation: none;
+//           animation: none;
+//   -webkit-filter: none;
+//           filter: none;
+//   transition: none;
+// }
+// [type="radio"]:checked + label::before {
+//   -webkit-animation: none;
+//           animation: none;
+//   background-color: #fff;
+// }
+// [type="radio"]:checked + label::after {
+//   -webkit-transform: scale(1);
+//           transform: scale(1);
+// }
+
+
+

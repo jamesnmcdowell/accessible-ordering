@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Button, Wrapper, Menu, MenuItem } from 'react-aria-menubutton';
+import styled from 'styled-components';
+
 
 class DropdownButton extends React.Component {
     constructor(props) {
@@ -42,9 +44,9 @@ class DropdownButton extends React.Component {
                     className="AriaMenuButton"
                     onSelection={this.handleSelection.bind(this)}
                 >
-                    <Button tag="button" className="AriaMenuButton-trigger">
+                    <ButtonStyled tag="button" className="AriaMenuButton-trigger">
                         Add to Cart
-          </Button>
+          </ButtonStyled>
                     <Menu>
                         <ul className="AriaMenuButton-menu">{menuItemElements}</ul>
                     </Menu>
@@ -55,3 +57,14 @@ class DropdownButton extends React.Component {
 }
 
 export default DropdownButton;
+
+
+let ButtonStyled = styled(Button) `
+    button {
+        background-color: #red
+    }
+    
+`;
+
+
+

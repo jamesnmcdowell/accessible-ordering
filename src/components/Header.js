@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { media, Container } from './Media';
 import styled from 'styled-components';
 import CartBadge from './CartBadge';
+import Underline from '../assets/selector.svg';
+
 
 let Header = ({match}) =>
     <NavBar>
@@ -30,27 +32,7 @@ let NavBar = styled.div`
     z-index:999;
 
 `;
-let FlexNav = styled.div`
-    display: flex;
-    height: 100%;
-    padding: 0 10px;
-    background-color: white;
-    ${media.tablet`
-    padding: 0 20px; 
-    `}
-`;
 
-let LogoContainer = styled.div`
-    display: flex;
-    align-items: center;
-    padding-right: 10px; 
-    z-index: 1;
-    flex: 0 0 auto;
-    ${media.desktop`
-    display: block;
-    padding-right: 10px; 
-    `}
-`;
 let MenuLinks = styled.div`
     display: flex;
     flex: 1 1 auto;
@@ -91,6 +73,24 @@ let NavLink = styled(Link) `
 
 let Span = styled.span`
     font-size:1.2rem;
+    font-weight: 600;
+    letter-spacing: .08rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    &:hover::after {
+        position: absolute;
+        outline: none;
+        content:  url(${Underline});
+        cursor: pointer;
+        text-decoration: none;
+        top: 15px;
+    }
+    
+
+
+
     ${media.phone`
     font-size:1.3rem;
     `}
