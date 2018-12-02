@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import { media, Container, Container2 } from './Media';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import Cart from './Cart';
 
 
 
@@ -21,7 +22,7 @@ class ItemCustScreen extends React.Component {
             focusCat: null,
             curIngredients: { ...props.item.ingredients},
             catCustOpen: catOrder.reduce((a, c) => {
-                a[c] = false;
+                a[c] = true;
                 return a;
             },{})
         };
@@ -89,8 +90,9 @@ class ItemCustScreen extends React.Component {
 
 
         return (
-            <Container2>
-                <div>
+            <Flex>
+            <div>
+            <Container vert>
                     <Name> {item.name} </Name>
                     <Gridlist>
                         {catOrder.map((c, i) =>
@@ -113,7 +115,8 @@ class ItemCustScreen extends React.Component {
                                     
                                     <form> 
                                     <fieldset>
-                                        <legend aria-label={`${c} customizations`} tabIndex="0" id={`${c}_legend`}> {c}</legend>
+                                        <legend aria-label={`${c} customizations`} tabIndex="0" id={`${c}_legend`}> </legend>
+                                    <ChoiceGrid>
                                     {
                                     Object.keys(item.ingredients[c]).sort((a,b) => {
                                         switch (a) {
@@ -147,6 +150,7 @@ class ItemCustScreen extends React.Component {
                                               </div>    
                                         ))
                                     }
+                                    </ChoiceGrid>
                                     </fieldset>
                                     </form>
                                 ) : (
@@ -163,9 +167,29 @@ class ItemCustScreen extends React.Component {
                             </Section>
                         )}
                     </Gridlist>
+                    <div>
+                        <CatTitle>Customization Summary</CatTitle>
+                        {catOrder.map((c, i) =>
+                        <SelectedSpan aria-label={`Current ${c} Selection`} >
+                                <BoldP>{c}:</BoldP>
+                                    {
+                                Object.keys(item.ingredients[c])
+                                    .filter((cc) => (item.ingredients[c][cc]))
+                                    .reduce((a, c, i) => (`${a}${(i === 0) ? c : `, ${c}`}`), ' ')
+                            }
+                        </SelectedSpan>
+
+                        )}
+                    </div>
+
                     <Button aria-label="add customized item to cart" onClick={this.addToCart.bind(this)}  > Add to Cart </Button>
+        
+            </Container>
                 </div>
-            </Container2>
+            <CartStyled />
+                   
+            </Flex>
+           
         )
     };
 
@@ -198,6 +222,11 @@ let Gridlist = styled.div`
     grid-template-columns: 1fr;
     grid-gap: 3rem;
     margin-bottom: 4rem; 
+`;
+let ChoiceGrid = styled.div`
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    grid-gap: 1rem;
 `;
 let Name = styled.h1`
     text-transform: uppercase;
@@ -296,6 +325,25 @@ let Input = styled.input `
 
 `;
 
+let Flex = styled.div`
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 2em;
+    width: 100%;
+    ${media.desktop`
+     grid-template-columns: 1fr 400px;
+    `}
+`;
+let CartStyled = styled(Cart) `
+    position: fixed;
+    margin-top: 40px;
+    
+`;
+let BoldP = styled.span `
+    text-transform: uppercase;
+    font-weight: 500;
+    
+`;
 
 
 

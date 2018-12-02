@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import bottomBorder from '../assets/border-bottom.svg';
 
 
 let CategoryItem = ({ item, match }) => 
     <Item>
         <Link aria-label={`${item.name} order`} role="link" tabIndex="0" alt={`${item.name}`} to={`/categories/${item.slug}`}> 
-        <ImgGradient>
             <Img alt={`${item.name}`} aria-hidden="true" src={require(`../assets/categories/${item.image}`)} />
-        </ImgGradient>
+        <ImgContainer />
         <TitleContainer>
             <Title >{item.name}</Title>
         </TitleContainer>
@@ -36,21 +36,25 @@ let Img = styled.img`
 `;
 let Item = styled.div`
     position: relative;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 `;
 
 let TitleContainer = styled.div`
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    z-index: 500;
-    width: 100%;
-    text-align: right;
+    text-align: center
     padding: 0 1.5rem;
 `;
 let Title = styled.h2`
-    color: white;
+    color: black;
     font-weight: 800;
     
+`;
+
+let ImgContainer = styled.div`
+    position: relative;
+    background-image: url(${bottomBorder});
+    height: 10px;
+    top: -8px;
+    background-repeat: no-repeat;
 `;
 
 

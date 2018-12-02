@@ -89,10 +89,6 @@ let Span = styled.span`
         text-decoration: none;
         top: 15px;
     }
-    
-
-
-
     ${media.phone`
     font-size:1.3rem;
     `}

@@ -5,19 +5,25 @@ import { media, Container, Container2 } from './Media';
 import styled from 'styled-components';
 import categoryHero from '../assets/category-hero.png';
 import { connect } from 'react-redux';
+import Cart from './Cart';
 
 
 let ItemScreen = ({ items, match, history, catName }) =>
-    <div>
+        <Flex>
         <Container vert>
+            <div>
             <MainTitle>{catName} </MainTitle>
             <AutoGrid>
                 {items.map((item, i) =>
                     <Item history={history} item={item} match={match} key={`${i}_${item}`} />
                 )}
             </AutoGrid>
+            </div>
         </Container>
-    </div>
+            <CartStyled />
+       
+        </Flex>
+  
 
 
 let mapStateToProps = (state, props) => {
@@ -62,5 +68,19 @@ let MainTitle = styled.h1`
     margin-bottom: 6rem;
 `;
 
+let Flex = styled.div`
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 2em;
+    width: 100%;
+    ${media.desktop`
+     grid-template-columns: 1fr 400px;
+    `}
+`;
 
+let CartStyled = styled(Cart) `
+   position: fixed;
+    margin-top: 40px;
+    
+`;
 

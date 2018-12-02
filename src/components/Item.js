@@ -4,25 +4,30 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { Button, Wrapper, Menu, MenuItem } from 'react-aria-menubutton';
 import DropdownButton from './DropdownButton';
-
+import bottomBorder from '../assets/border-bottom.svg';
 
 let Item = ({ item, match, dispatch, history, costMap }) =>            
     <ItemContainer>
-        <FlexSeparate>
-        <Title>{item.name}</Title>
-        <Flex>
-            {item.badges.map((item, i) =>
-                <Badge key={`${i}_${item}`}> {item}</Badge>
-            )}
-        </Flex>
-        </FlexSeparate>
-        <Img alt={item.name} src={require(`../assets/${match.params.categoryName}/${item.image}`)} />
-        <FlexSeparate>
-            <p>{item.calories} calories</p>
-            <p> {(match.params.categoryName === "sandwich") ? `$${costMap.small} - $${costMap.large}` : item.price}  </p>
-           
-        </FlexSeparate>
-        <p>{item.description}</p>
+        <FlexPush>
+        <FlexSeparateTitle>
+            <Title>{item.name}</Title>
+            <Flex>
+                {item.badges.map((item, i) =>
+                    <Badge key={`${i}_${item}`}> {item}</Badge>
+                )}
+            </Flex>
+        </FlexSeparateTitle>
+        
+            <Img alt={item.name} src={require(`../assets/${match.params.categoryName}/${item.image}`)} />
+        <ImgContainer/>
+        <ItemInfoBlock>
+            <FlexSeparate>
+                <p>{item.calories} calories</p>
+                <p> {(match.params.categoryName === "sandwich") ? `$${costMap.small} - $${costMap.large}` : item.price}  </p>
+            </FlexSeparate>
+            <p>{item.description}</p>
+        </ItemInfoBlock>
+        </FlexPush>
         <GridSeparate>
             <ButtonStyle aria-label={`customize ${item.name} ${match.params.categoryName}`} role="button" tabIndex="0" alt={`${item.name}`} to={`/categories/${match.params.categoryName}/${item.id}`} > Customize </ButtonStyle> 
             {match.params.categoryName !== "sandwich"
@@ -70,23 +75,56 @@ let ImgGradient = styled.div`
         z-index: 1;
     }    
 `;
+// let ImgContainer = styled.div`
+//     position: relative;
+//     &::after {
+//         position: absolute;
+//         outline: none;
+//         content:  url(${bottomBorder});
+//         cursor: pointer;
+//         text-decoration: none;
+//         top: 15px;
+//     } 
+// `;
+
+let ImgContainer = styled.div`
+    position: relative;
+    background-image: url(${bottomBorder});
+    height: 10px;
+    top: -8px;
+    background-repeat: no-repeat;
+`;
 
 let Title = styled.h2`
     
 `;
+let FlexPush = styled.div`
+    flex: 1;
+    
+`;
 let Img = styled.img`
     max-width: 100%;
+
 `;
 let ItemContainer = styled.div`
     position: relative;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    padding: 2rem;
+    display: flex;
+    flex-direction: column;
 `;
+let ItemInfoBlock = styled.div`
+    padding: 0 2rem 1rem 2rem;
+`;
+
+
 
 let FlexSeparate = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+`;
+let FlexSeparateTitle= styled(FlexSeparate)`
+    padding: 0rem 2rem;
 `;
 let Flex = styled.div`
     display: flex;
@@ -100,7 +138,9 @@ let Badge = styled.p`
 let GridSeparate = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 2rem;
+    grid-template-rows: 50px;
+  
+    
 `;
 
 let ButtonStyle = styled(Link)`
@@ -110,7 +150,9 @@ let ButtonStyle = styled(Link)`
     font-weight: 600;
     padding: 1rem;
     background-color: #F36C3E;
+    background-color: #FFA310
     color: white;
+    color: black;
     &:hover {
     }
     span {
@@ -124,7 +166,9 @@ let Button2 = styled.button`
     font-weight: 600;
     padding: 1rem;
     background-color: #5F5B5C;
+    background-color: #FFC810
     color: white;
+    color: black;
     &:hover {
     }
     span {
@@ -132,8 +176,10 @@ let Button2 = styled.button`
     }
 `;
 let DropDownButtonStyled = styled(DropdownButton)`
+    border: none;
     button {
         background-color: #red
+        border: none !important;
     }
     
 `;

@@ -1,16 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
-
-let CartItem = ({ item }) =>  { 
+//fix
+let CartItem = ({ item, costMap }) =>  { 
     let keys = Object.keys(item.ingredients);
+    let size;
+    Object.keys(item.ingredients.size).map( (key) => {
+        if (item.ingredients.size[key] === true) {
+            size = key;
+        }
+    })
+    let basePrice = costMap[size];  
     return (
     <ItemContainer>
         <FlexBetween>
             <Name> {item.name}</Name>
-            <Price>${item.price}</Price>
+            <Price>${basePrice}</Price>
         </FlexBetween>
+
+        
+        
         {
-        Object.keys(item.ingredients).map((k, i) => 
+        Object.keys(item.ingredients).map((k, i) => { 
+            while(i<1) {
+            return (
             <div>
             <Price>
             <IngredTitle> {k}: </IngredTitle>
@@ -27,7 +39,27 @@ let CartItem = ({ item }) =>  {
             </Price>
             </div>
         )
+    }
+        }
+        )
+        
 
+        }
+   
+        {(item.paidExtras) &&
+        <div>
+        <FlexBetween>
+            <IngredTitle>Paid add-ons</IngredTitle>
+            <Price>${item.price - basePrice}</Price>
+        </FlexBetween>
+        
+        {item.paidExtras.map(item =>
+            <div>
+                <P>{item.item} : ${item.cost} </P>
+               
+            </div>
+        )}
+        </div>
         }
         
     </ItemContainer>
@@ -50,6 +82,9 @@ let Name = styled.h3`
     margin: 0;
 `;
 let Price = styled.p`
+    margin: 0;
+`;
+let P = styled.p`
     margin: 0;
 `;
 

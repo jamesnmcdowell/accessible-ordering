@@ -39,19 +39,17 @@ class DropdownButton extends React.Component {
         });
 
         return (
-            <div>
-                <Wrapper
-                    className="AriaMenuButton"
-                    onSelection={this.handleSelection.bind(this)}
-                >
-                    <ButtonStyled tag="button" className="AriaMenuButton-trigger">
-                        Add to Cart
-          </ButtonStyled>
-                    <Menu>
-                        <ul className="AriaMenuButton-menu">{menuItemElements}</ul>
-                    </Menu>
-                </Wrapper>
-            </div>
+            <Wrapper
+                className="AriaMenuButton"
+                onSelection={this.handleSelection.bind(this)}
+            >
+                <ButtonStyled tag="button" className="AriaMenuButton-trigger">
+                    Add to Cart
+                </ButtonStyled>
+                <Menu>
+                    <ul className="AriaMenuButton-menu">{menuItemElements}</ul>
+                </Menu>
+            </Wrapper>
         );
     }
 }
@@ -62,6 +60,7 @@ export default DropdownButton;
 let ButtonStyled = styled(Button) `
     button {
         background-color: #red
+        
     }
     
 `;
