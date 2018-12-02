@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 let CartBadge = ({ cartNum, cartPrice }) =>
-     <span aria-label={`${cartNum} items`} > CART [{cartNum}] { (cartPrice > 0) ? `$${cartPrice}` : "" } </span>
+     <span aria-label={`${cartNum} items`} > MY ORDER [{cartNum}] { (cartPrice > 0) ? `$${cartPrice}` : "" } </span>
 
 let mapStateToProps = (state) => {
     // let sum = state.cart.reduce((total, value) => total + value.quantity, 0);

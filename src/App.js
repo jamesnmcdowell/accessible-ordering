@@ -95,9 +95,10 @@ a:focus, input:focus, button:focus, select:focus {
   padding: 1rem;
   background-color: #FFA310;
   background-color: #5F5B5C;
+  background-color: #FFC810
+  border: none !important;
 
-
-  color: white;
+  color: black;
   height: 100%;
   width: 100%;
   &:hover {
@@ -163,7 +164,8 @@ a:focus, input:focus, button:focus, select:focus {
 .AriaMenuButton-menuItem:hover,
 .AriaMenuButton-menuItem:focus {
   background-color: #5F5B5C;
-  color: white;
+  background-color: #FFC810
+  color: black;
 }
 
 .AriaMenuButton-menuItem.is-selected {
@@ -174,6 +176,60 @@ a:focus, input:focus, button:focus, select:focus {
 
 
 
+
+
+
+
+.modal {
+  background: #fff;
+  outline: 0;
+  min-width: 250px;
+  max-width: 500px;
+  border-radius: 4px;
+}
+
+.modal-header,
+.modal-body,
+.modal-footer {
+  padding: 0.5em 1.5em;
+}
+
+.modal-header {
+  border-bottom: 1px solid #eee;
+}
+
+.modal-title {
+  margin: 0;
+}
+
+.modal-footer {
+  border-top: 1px solid #eee;
+  text-align: right;
+}
+
+.modal--animated {
+  opacity: 0.3;
+  transform: scale(1.1) translateY(-10px);
+  -webkit-transform: scale(1.1) translateY(-10px);
+  transition: all 0.3s linear;
+  -webkit-transition: all 0.3s linear;
+}
+
+.modal--animated.has-entered {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  -webkit-transform: scale(1) translateY(0);
+}
+
+.underlay {
+  background-color: rgba(0, 0, 0, 0);
+  transition: all 0.3s linear;
+  -webkit-transition: all 0.3s linear;
+}
+
+.underlay.has-entered {
+  background-color: rgba(0, 0, 0, 0.5);
+}
 
 
 

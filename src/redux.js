@@ -32,11 +32,23 @@ let reducer = (oldState = initialState, action) => {
                 item.price = oldState.cost.size[size];
             }
             if (added) {
+                console.log(added);
                 let costIncrease = 0;
+                let paidExtras = [];
                 added.forEach( (c) => {
+                    if (oldState.costMap[c] > 0) {
+                        var obj = {};
+                        obj["item"] = c;
+                        obj["cost"] = oldState.costMap[c];
+                        paidExtras.push(obj);
+                    }
                     costIncrease += oldState.costMap[c];
                 })
                 item.price += costIncrease;
+                console.log(paidExtras);
+                console.log(item)
+                item = Object.assign({ paidExtras: paidExtras }, item);
+                console.log(item)
             }
             // let itemMatch = cart.find((item) => item.id === item.id);
             // let itemsNotMatch = cart.filter((item) => item.id !== item.id);
@@ -49,6 +61,7 @@ let reducer = (oldState = initialState, action) => {
             //     let itemMod = { ...item, quantity: 1 };
             //     newCart = cart.concat([itemMod]);
             // }
+
             return { ...oldState, cart: [...oldState.cart,item]};
             break;
         }

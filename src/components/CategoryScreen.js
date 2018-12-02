@@ -4,26 +4,29 @@ import { categories } from '../db.json';
 import { media, Container, Container2 } from './Media';
 import styled from 'styled-components';
 import categoryHero from '../assets/category-hero.png';
-
+import Cart from './Cart';
+import Modal from './Modal';
 
 let CategoryScreen = ({ products, match }) =>
-    <div>
-        <Hero>
-            <Container2>
+ 
+    <Flex>
+        <Container vert>
+        <div>
             <MainTitle>
                 Menu Categories
             </MainTitle>
-            {/* <img aria-hidden="true" src={categoryHero} /> */}
-            </Container2>
-        </Hero>
-        <Container2 vert>
+       
             <AutoGrid>
                 {categories.map((item, i) =>
                     <CategoryItem match={match} key={`${i}_${item}`} item={item} />
                 )}
             </AutoGrid>
-        </Container2>
-    </div>
+        
+        </div>
+        </Container >
+        <CartStyled />
+    </Flex>
+   
 
 
 export default CategoryScreen;
@@ -55,4 +58,20 @@ let MainTitle = styled.h1`
     text-transform: uppercase;
     font-family: 'Oregano', cursive;   
     font-family: 'Advent Pro', sans-serif;
+    margin-bottom: 6rem;
+`;
+
+let Flex = styled.div`
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 2em;
+    width: 100%;
+    ${media.desktop`
+     grid-template-columns: 1fr 400px;
+    `}
+`;
+let CartStyled = styled(Cart) `
+    position: fixed;
+    margin-top: 40px;
+    
 `;

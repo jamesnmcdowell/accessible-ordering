@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import Footer from './Footer';
+import Cart from './Cart';
 import styled from 'styled-components';
 import {
     withRouter
@@ -26,7 +27,10 @@ class Shell extends Component {
                 <SiteHeader match={match} />
                 <Grab className="scroll-grabber" >
                 <SiteContent  >
-                    {children}
+                    <Container>
+                        {children}
+                        
+                    </Container>
                 </SiteContent>
                 </Grab>
                 <SiteFooter />
@@ -58,6 +62,13 @@ let SiteContent = styled.div`
 `;
 
 let SiteFooter = styled(Footer) `
+`;
+
+let Container = styled.div`
+    display: flex;
+`;
+let CartStyled = styled(Cart)`
+    position: fixed;
 `;
 
 
