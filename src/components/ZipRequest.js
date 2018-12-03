@@ -74,11 +74,11 @@ class ZipRequest extends Component {
                             <p> To start your order, you need to first select a location for pickup. Please enter your zip code to find nearby locations. </p>
                         }
                             <div>
-                            <label htmlFor="cardnumber">Zip code:</label>
+                            <label htmlFor="zipcode">Zip code:</label>
                             <GridSeparate>
-                            <Input onKeyDown={this.handleKeyPress.bind(this)} type="text" name="cardnumber" id="cardnumber" onChange={this.updateZip.bind(this)}/>
+                            <Input aria-label={`enter zipcode to find nearby locations` } onKeyDown={this.handleKeyPress.bind(this)} type="text" name="zipcode" id="zipcode" onChange={this.updateZip.bind(this)}/>
                            
-                            <Button onClick={this.toggleDisplayLoc.bind(this)}>
+                            <Button aria-label={`search for locations` }onClick={this.toggleDisplayLoc.bind(this)}>
                                 Search
                             </Button>
                         </GridSeparate>
@@ -94,9 +94,9 @@ class ZipRequest extends Component {
                                 <div>
                                     <LocationTitle>{c.name}</LocationTitle>
                                     <p>{c.street}</p>
-                                    <p>{c.city} {c.state} {c.zip}</p>
+                                    <p>{c.city}, {c.state} {c.zip}</p>
                                  </div>
-                                <Button onClick={updateResturantId.bind(null,c.id) }> Select </Button>
+                            <Button aria-label={`select ${c.name} location`} onClick={updateResturantId.bind(null,c.id) }> Select </Button>
                             </LocationBox>
                         )
                         

@@ -23,7 +23,7 @@ let Item = ({ item, match, dispatch, history, costMap }) =>
         <ItemInfoBlock>
             <FlexSeparate>
                 <p>{item.calories} calories</p>
-                <p> {(match.params.categoryName === "sandwich") ? `$${costMap.small} - $${costMap.large}` : item.price}  </p>
+                <p> {(match.params.categoryName === "sandwich") ? `$${costMap.small} to $${costMap.large}` : item.price}  </p>
             </FlexSeparate>
             <p>{item.description}</p>
         </ItemInfoBlock>
@@ -35,9 +35,9 @@ let Item = ({ item, match, dispatch, history, costMap }) =>
             <Button2 aria-live="assertive" onClick={() => { 
                 dispatch({ type: "ADD_TO_CART", payload: {item} }); 
                 history.push('/'); 
-            }} aria-label={`add to cart ${item.name} `} role="button" tabIndex="0"> Add to Cart</Button2>
+            }} aria-label={`add to order ${item.name} `} role="button" tabIndex="0"> Add to Order</Button2>
             :
-                <DropDownButtonStyled role="button" tabIndex="0" options={['small', 'medium', 'large']} settings={ {'title':'Add to Order'} } cost={['small', 'medium', 'large'].map(c => costMap[c])} onSelect={(size) => {
+                <DropDownButtonStyled aria-label={`add to order ${item.name} `} tabIndex="0" options={['small', 'medium', 'large']} settings={{ 'title': 'Add to Order', 'ariaTitle': `add to order ${item.name} ` }} cost={['small', 'medium', 'large'].map(c => costMap[c])} onSelect={(size) => {
                 dispatch({ type: "ADD_TO_CART", payload: {item, size} });
                 history.push('/');
             }}/>
