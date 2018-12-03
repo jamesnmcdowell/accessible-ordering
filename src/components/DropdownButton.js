@@ -28,8 +28,12 @@ class DropdownButton extends React.Component {
             if (selected === option) {
                 itemClass += ' is-selected';
             }
-            // const display = option === 'destroy' ? 'destroy this menu' : `${option} - $${cost[i]}`;
-            const display = option === 'destroy' ? 'destroy this menu' : `${option} `;
+            let display;
+            if(cost) {
+                display = option === 'destroy' ? 'destroy this menu' : `${option} - $${cost[i]}`;
+            } else {
+                display = option === 'destroy' ? 'destroy this menu' : `${option} `;
+            }
             return (
                 <li className="AriaMenuButton-menuItemWrapper" key={i}>
                     <MenuItem className={itemClass} value={option} text={option}>
