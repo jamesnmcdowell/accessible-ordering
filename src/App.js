@@ -5,6 +5,7 @@ import styled, { createGlobalStyle } from 'styled-components'
 import Router from './Router';
 
 import { normalize } from 'polished';
+import ZipRequest from './components/ZipRequest';
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -73,6 +74,9 @@ a:focus, input:focus, button:focus, select:focus {
   width: 100%;
   display: inline-block;
   position: relative;
+  max-width: 400px;
+
+  
 
 }
 
@@ -139,6 +143,8 @@ a:focus, input:focus, button:focus, select:focus {
   margin: 4px 0 0 0;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
   width: 215px;
+        max-height: 250px;
+    overflow: auto;
 }
 
 .AriaMenuButton-menu--flushRight {

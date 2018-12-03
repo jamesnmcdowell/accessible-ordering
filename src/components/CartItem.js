@@ -9,6 +9,7 @@ let CartItem = ({ item, costMap }) =>  {
             size = key;
         }
     })
+    console.log(costMap);
     let basePrice = costMap[size];  
     return (
     <ItemContainer>

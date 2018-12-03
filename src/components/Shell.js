@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import {
     withRouter
 } from 'react-router-dom';
+import ZipRequest from './ZipRequest';
 
 class Shell extends Component {
     
@@ -24,6 +25,7 @@ class Shell extends Component {
         let {children, match} = this.props;
         return (
             <Site className="site" >
+                <ZipRequest/>
                 <SiteHeader match={match} />
                 <Grab className="scroll-grabber" >
                 <SiteContent  >
