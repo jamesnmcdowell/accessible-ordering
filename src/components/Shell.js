@@ -35,7 +35,7 @@ class Shell extends Component {
                     </Container>
                 </SiteContent>
                 </Grab>
-                <SiteFooter />
+                {/* <SiteFooter /> */}
             </Site>
         )
     }

@@ -39,16 +39,20 @@ class CheckoutScreen extends Component {
 
     submitState1 () {
         if (this.state.firstName && this.state.email && this.state.phone) {
-            this.progressState();   
+            this.progressState();
+            document.querySelector(`#pickup-time`).focus();      
         }
     }
     submitState2 () {
         if (this.state.pickupTime) {
-            this.progressState();   
+            this.progressState(); 
+            document.querySelector(`#order-summary`).focus();  
+            
         }
     }
     submitState3 () {
-            this.progressState();   
+        this.progressState();
+        document.querySelector(`#payment`).focus();   
     }
     submitOrder () {
         this.props.updateOrder({ 
@@ -69,18 +73,27 @@ class CheckoutScreen extends Component {
         var time = rounded.toLocaleTimeString('it-IT')
         let time2 = time
         console.log(time);
-        let { cart, total, costMap, history} = this.props;
+        let { cart, total, costMap, history, resturant} = this.props;
         let { position, displayGuestLogin, firstName, email, phone, pickupTime} = this.state;
         console.log(costMap);
         console.log(position);
+        console.log(resturant);
         return (
             <Container vert>
             <Wrapper>
             <AccountBlock>
                 { (position > 1) ?
                 <div>
-                <Title> New Around Here? </Title>
-                <p> hello {firstName} </p>
+                <Title tabIndex="0" id="welcome-user"> Welcome {firstName} </Title>
+                {resturant &&
+                    <div>
+                        <p>Current Pickup Location: {resturant.name}</p>
+                        <span>{resturant.street} </span>
+                        <br />
+                        <span>{resturant.city}, {resturant.zip}  </span>
+                    </div>
+                }
+
                 </div>
                     :
                     <div>
@@ -127,13 +140,13 @@ class CheckoutScreen extends Component {
                         </Form>
                                 <br />
                     {(position === 1)&&
-                        <Button aria-label=""
+                        <Button aria-label="continue to next step"
                             role="button"
                             tabIndex="0"
                             alt=""
                             onClick={this.submitState1.bind(this)}
                         >
-                            Submit
+                            Continue
                         </Button>
                     }
                     </div>
@@ -142,7 +155,7 @@ class CheckoutScreen extends Component {
                 }
             </AccountBlock> 
             <AccountBlock> 
-                <Title> Pickup Time </Title>
+                <Title tabIndex="0" id="pickup-time"> Pickup Time </Title>
                 
                 {( position >= 2 ) &&
                 <div class="select-box">
@@ -153,18 +166,14 @@ class CheckoutScreen extends Component {
                     onFocusChange={({ focused }) => this.setState({ focused })} // PropTypes.func.isRequired
                     id="your_unique_id" // PropTypes.string.isRequired,
                 /> */}
-                <DropDownButtonStyled onSelect={(val)=> {this.setState({pickupTime: val})} } settings={{ 'title': 'Select Time' }} options={['11:00am', '11:15am', '11:30am', '11:45am', '12:00pm', '12:15pm', '12:30pm', '12:45pm', '1:00pm']} />
+                    <DropDownButtonStyled tabIndex="0" onSelect={(val) => { this.setState({ pickupTime: val }) }} settings={{ 'title': 'Select Pickup Time', 'ariaTitle': "Select pickup Time" }} options={['11:00 am', '11:15 am', '11:30 am', '11:45 am', '12:00 pm', '12:15 pm', '12:30 pm', '12:45 pm', '1:00 pm']} />
                 { pickupTime&&
-                <p>{pickupTime} </p> 
+                <span>  {pickupTime} </span> 
                 }
-                {/* <label htmlFor="appt">Select pickup time:</label>
-                    <input type="time"  step="900" id="appt" name="appt"
-                    min="9:00" max="18:00" required/>
-                    <span class="note">Pick Time</span> */}
                 <br/>
                 <br/>
                 {(position === 2)&&
-                <Button aria-label="" role="button" tabIndex="0" onClick={this.submitState2.bind(this)}>
+                <Button aria-label="continue to next step" role="button" tabIndex="0" onClick={this.submitState2.bind(this)}>
                     Continue
                 </Button>
                 }
@@ -172,13 +181,13 @@ class CheckoutScreen extends Component {
                 }
             </AccountBlock>     
             <AccountBlock> 
-                <Title> Order Summary </Title>
+                <Title tabIndex="0" id="order-summary"> Order Summary </Title>
                 { ( position >= 3 ) &&
                 <div>
                 <CheckoutBlock costMap={costMap} cart={cart} total={total} />
                 <br/>
                 {(position === 3)&&
-                <Button aria-label="" role="button" tabIndex="0" onClick={this.submitState3.bind(this)}>
+                <Button aria-label="confirm order and go to payment" role="button" tabIndex="0" onClick={this.submitState3.bind(this)}>
                     Continue
                 </Button>
                 }
@@ -186,7 +195,7 @@ class CheckoutScreen extends Component {
                 }
             </AccountBlock>     
             <AccountBlock> 
-                <Title> Payment</Title>
+                <Title tabIndex="0" id="payment"> Payment</Title>
                 { ( position >= 4 ) &&
                 <div>
                 <Form>
@@ -198,12 +207,12 @@ class CheckoutScreen extends Component {
                     
                     <GridSeparate2>
                         <div>
-                            <label htmlFor="expiration-month">Exp Month:</label>
+                            <label htmlFor="expiration-month">Expiration Month:</label>
                             <input type="text" name="expiration-month" id="expiration-month" />
                         </div>
                         <div>
-                            <label htmlFor="expiration-year">Exp Year:</label>
-                            <input type="text" name="expiration-year" id="cardnumber" />
+                            <label htmlFor="expiration-year">Expiration Year:</label>
+                            <input type="text" name="expiration-year" id="expiration-year" />
                         </div>
                         <div>
                             <label htmlFor="cvv">CVV:</label>
@@ -217,7 +226,7 @@ class CheckoutScreen extends Component {
                 
                 </Form>
                 <br/>
-                <Button aria-label="" role="button" tabIndex="0" onClick={this.submitOrder.bind(this)}>
+                <Button aria-label="place order" role="button" tabIndex="0" onClick={this.submitOrder.bind(this)}>
                     Place Order
                 </Button>
                 </div>

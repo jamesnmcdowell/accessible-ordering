@@ -9,7 +9,8 @@ class ZipRequest extends Component {
         super(props);
         this.state={
             displayLoc: false,
-            zip: ""
+            zip: "",
+            focusCat: null,
         }
     }
     componentDidMount () {
@@ -17,6 +18,14 @@ class ZipRequest extends Component {
         //     this.props.updateZip('30047');
         // }, 3000);
     }
+
+    componentDidUpdate(prevProps) {
+        if (this.state.displayLoc && this.state.focusCat) {
+            document.querySelector(`.${this.state.focusCat}`).focus();
+            this.setState({ focusCat: null });
+        }
+    }
+
     toggleDisplayLoc() {
         console.log(this.state.zip);
         if(/[0-9]{5}/.test(this.state.zip)) {
@@ -27,6 +36,20 @@ class ZipRequest extends Component {
     updateZip(e) {
         console.log(e.target.value);
         this.setState({zip:e.target.value})
+        this.setState({ focusCat: 'location-list' });  
+    }
+
+    handleKeyPress = (event) => {
+        console.log(event);
+        if (event.key == 'Enter' || event.charCode == 13 ) {
+            event.preventDefault();
+            event.stopPropagation();
+            console.log('enter press here! ')
+            if(/[0-9]{5}/.test(this.state.zip)) {
+            this.setState({ displayLoc: true });
+            this.setState({ focusCat: 'location-list' });    
+        }
+        }
     }
 
     render() {
@@ -40,34 +63,47 @@ class ZipRequest extends Component {
                 onExit={() => { }}
                 underlayClickExits={false}
                 verticallyCenter={true}
-                focusDialog={true}
+                initialFocus="#modal-title"
+                titleText="Find nearby Location"
             >
-                    <div id="demo-two-modal" className="modal">
-                        <header className="modal-header">
-                            <h2 id="demo-two-title" className="modal-title">
-                                This modal has a title
-                            </h2>
-                        </header>
-                        <div>
-                            <label htmlFor="cardnumber">Zip code:</label>
-                            <input type="text" name="cardnumber" id="cardnumber" onChange={this.updateZip.bind(this)}/>
-                            <button onClick={this.toggleDisplayLoc.bind(this)}>
+                    <Modal id="demo-two-modal" className="modal">
+                            <Title tabIndex="0" id="modal-title" className="modal-title">
+                                Find nearby Location
+                            </Title>
+                        {(!displayLoc )&&
+                            <p> To start your order, you need to first select a location for pickup. Please enter your zip code to find nearby locations. </p>
+                        }
+                            <div>
+                            <label htmlFor="zipcode">Zip code:</label>
+                            <GridSeparate>
+                            <Input aria-label={`enter zipcode to find nearby locations` } onKeyDown={this.handleKeyPress.bind(this)} type="text" name="zipcode" id="zipcode" onChange={this.updateZip.bind(this)}/>
+                           
+                            <Button aria-label={`search for locations` }onClick={this.toggleDisplayLoc.bind(this)}>
                                 Search
-                            </button>
+                            </Button>
+                        </GridSeparate>
                         </div>
                          
                         <div>
-
+                        {displayLoc &&
+                        <LocationTitle aria-label={`There are ${resturants.length} locations near ${zip}`} tabIndex="0" className="location-list">There are {resturants.length} locations near {zip} </LocationTitle >
+                        }
                         { displayLoc &&
                             resturants.map((c, i) =>
-                            <div>
-                                <p> {c.name}{c.street} </p>
-                                <button onClick={updateResturantId.bind(null,c.id) }> Select </button>
-                            </div>
-                        )}
+                            <LocationBox>
+                                <div>
+                                    <LocationTitle>{c.name}</LocationTitle>
+                                    <p>{c.street}</p>
+                                    <p>{c.city}, {c.state} {c.zip}</p>
+                                 </div>
+                            <Button aria-label={`select ${c.name} location`} onClick={updateResturantId.bind(null,c.id) }> Select </Button>
+                            </LocationBox>
+                        )
+                        
+                        }
                         </div>
                     
-                    </div>
+                    </Modal>
 
             </AriaModal>
             }
@@ -91,3 +127,69 @@ let ZipRequestState = connect(
 )(ZipRequest);
 
 export default ZipRequestState;
+
+let Modal = styled.div`
+    padding: 2rem;
+`;
+
+let Input = styled.input`
+
+    font-size: 16px;
+    line-height: 22px;
+    color: rgb(72, 72, 72);
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 0;
+    display: block;
+    width: 100%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(219, 219, 219);
+    border-radius: 2px ;
+    width: 100%;
+    margin: 0 0 15px;
+    padding: 8px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    tex-align: left;
+`;
+
+let Button = styled.button`
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 1rem;
+    background-color: #5F5B5C;
+    background-color: #FFC810
+    color: white;
+    color: black;
+    
+    &:hover {
+    }
+    span {
+        text-transform: uppercase;
+    }
+`;
+
+let GridSeparate = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 50px;
+`;
+let LocationBox = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    p {
+        margin: 0;
+    }
+`;
+let Title = styled.h2`
+    outline: 0;
+`;
+let LocationTitle  = styled.p`
+    outline: 0;
+    font-weight: 500;
+`;

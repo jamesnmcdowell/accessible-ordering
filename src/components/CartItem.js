@@ -3,6 +3,8 @@ import styled from 'styled-components';
 //fix
 let CartItem = ({ item, costMap }) =>  { 
     let keys = Object.keys(item.ingredients);
+    let basePrice;
+    if (item.ingredients.size) {
     let size;
     Object.keys(item.ingredients.size).map( (key) => {
         if (item.ingredients.size[key] === true) {
@@ -10,7 +12,10 @@ let CartItem = ({ item, costMap }) =>  {
         }
     })
     console.log(costMap);
-    let basePrice = costMap[size];  
+     basePrice= costMap[size]; 
+    } else {
+        basePrice = item.price;
+    }
     return (
     <ItemContainer>
         <FlexBetween>
@@ -31,7 +36,7 @@ let CartItem = ({ item, costMap }) =>  {
                 Object.keys(item.ingredients[k]).map((kk, ii) => {
                     if (item.ingredients[k][kk]) {
                     return (
-                        <span> {kk}, </span> 
+                        <span> {kk} </span> 
                     )
                     }
                 }

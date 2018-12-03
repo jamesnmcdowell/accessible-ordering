@@ -181,6 +181,20 @@ a:focus, input:focus, button:focus, select:focus {
 
 
 
+legend {
+  padding: 0;
+  display: table;
+}
+fieldset {
+  border: 0;
+  padding: 0.01em 0 0 0;
+  margin: 0;
+  min-width: 0;
+}
+body:not(:-moz-handler-blocked) fieldset {
+  display: table-cell;
+}
+
 
 
 

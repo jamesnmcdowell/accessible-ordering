@@ -10,12 +10,19 @@ let Header = ({match}) =>
     <NavBar>
         <Container>
             <MenuLinks>
+                {/* <NavLink aria-label={`Homepage `} to="/" >
+                    <Span> LOGO </Span>
+                </NavLink> */}
+                <NavLink to="/"  >
+                    <Span>MENU</Span>
+                </NavLink>
+                <NavLink to="/"  >
+                    <Span> REWARDS </Span>
+                </NavLink>
                 <NavLink to="/"  >
                     <Span> SIGN IN </Span>
                 </NavLink>
-                <NavLink aria-label={`Homepage `} to="/" >
-                    <Span> LOGO </Span>
-                </NavLink>
+             
                 <NavLink to="/cart" >
                     <Span> <CartBadge /> </Span>
                 </NavLink>
@@ -88,6 +95,7 @@ let Span = styled.span`
         cursor: pointer;
         text-decoration: none;
         top: 15px;
+        left: 0;
     }
     ${media.phone`
     font-size:1.3rem;

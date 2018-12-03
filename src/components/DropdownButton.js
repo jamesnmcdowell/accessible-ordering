@@ -40,11 +40,11 @@ class DropdownButton extends React.Component {
         });
 
         return (
-            <Wrapper
+            <Wrapper 
                 className="AriaMenuButton"
                 onSelection={this.handleSelection.bind(this)}
             >
-                <ButtonStyled tag="button" className="AriaMenuButton-trigger">
+                <ButtonStyled aria-label={settings.ariaTitle} tabIndex="0" tag="button" className="AriaMenuButton-trigger">
                     {settings.title}
                 </ButtonStyled>
                 <Menu>

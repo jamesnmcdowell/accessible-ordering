@@ -75,3 +75,19 @@ let CartStyled = styled(Cart) `
     margin-top: 40px;
     
 `;
+
+{/* <Container vert>
+    <div>
+        <MainTitle>
+            Menu Categories
+            </MainTitle>
+        <Flex>
+            <AutoGrid>
+                {categories.map((item, i) =>
+                    <CategoryItem match={match} key={`${i}_${item}`} item={item} />
+                )}
+            </AutoGrid>
+            <CartStyled />
+        </Flex>
+    </div>
+</Container > */}
