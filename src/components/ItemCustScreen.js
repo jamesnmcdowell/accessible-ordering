@@ -55,11 +55,11 @@ class ItemCustScreen extends React.Component {
 
     selectIngredient(cat, ingred) {
         let ingreds = this.state.curIngredients;
-        ingreds[cat] = Object.keys(ingreds[cat]).reduce((a, c) => {
-            a[c] = (c === ingred);
-            return a;
-        }, {});
-
+        for (let key in ingreds[cat]) {
+            ingreds[cat][key] = (key === ingred);
+            
+        }
+     
         this.setState({
             curIngredients: ingreds
         });

@@ -752,5 +752,95 @@
     ],
     "cart": [
     
-    ]
+    ],
+    "resturants": [
+        {
+            "id": 1,
+            "name": "Hapeville",
+            "street":"861 Virginia Ave.",
+            "city":"Hapeville",
+            "state":"GA",
+            "zip":"30354"
+        },
+        {
+            "id": 2,
+            "name": "Cobb",
+            "street":"2980 Cobb Pkwy",
+            "city":"Atlanta",
+            "state":"GA",
+            "zip":"30339"
+        },
+        {
+            "id": 3,
+            "name": "Pleasant Hill",
+            "street":"1625 Pleasant Hill Rd.",
+            "city":"Duluth",
+            "state":"GA",
+            "zip":"30096"
+        }
+    ],
+    "order": {
+
+    },
+    "user": {
+        "email": "james@james.com",
+        "username": "james123",
+        "id": 1,
+        "password": "abc",
+        "last_name": "McDowell",
+        "first_name": "James",
+        "pickup-time": "12:30pm",
+        "resturantId": null,
+        "favorites": [
+            {
+                "info": {
+                    "name": "Turkey Guacamole",
+                    "label": "my special turkey"
+                },
+                "size": {
+                    "small": true,
+                    "medium": false,
+                    "large": false
+                },
+                "bread": {
+                    "sourdough": true,
+                    "wheat": false,
+                    "rye": false,
+                    "tortilla": false,
+                    "pretzel": false,
+                    "gluten free": false
+                },
+                "cheese": {
+                    "parmesan": false,
+                    "mozzarella": true,
+                    "cheddar": false,
+                    "provolone": false,
+                    "swiss": false
+                },
+                "meat": {
+                    "ham": false,
+                    "salami": false,
+                    "bacon": false,
+                    "chicken": false,
+                    "pepperoni": false,
+                    "pastrami": false,
+                    "turkey": true,
+                    "roast beef": false
+                },
+                "vegetable": {
+                    "lettuce": true,
+                    "mushrooms": false,
+                    "onions": true,
+                    "jalapeno": false,
+                    "tomato": true,
+                    "guacamole": true
+                },
+                "condiment": {
+                    "mustard": true,
+                    "mayo": false,
+                    "ranch": false
+                }
+            }
+        ]
+    }
 }

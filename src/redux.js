@@ -10,7 +10,10 @@ const initialState = {
     cost: data.ingredientCosts,
     costMap: Object.keys(data.ingredientCosts).reduce((a,c)=> (
         {...a, ...data.ingredientCosts[c]}
-    ), {})
+    ), {}),
+    user: data.user,
+    resturants: data.resturants,
+    order: {}
 
 };
 
@@ -64,6 +67,14 @@ let reducer = (oldState = initialState, action) => {
 
             return { ...oldState, cart: [...oldState.cart,item]};
             break;
+        }
+        case 'UPDATE_USER': {
+            return { ...oldState, user: {...oldState.user, ...action.payload} };
+
+        }
+        case 'SET_ORDER': {
+            return { ...oldState, order: action.payload};
+
         }
         default:
             return oldState;

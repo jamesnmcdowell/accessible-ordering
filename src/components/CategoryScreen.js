@@ -5,7 +5,7 @@ import { media, Container, Container2 } from './Media';
 import styled from 'styled-components';
 import categoryHero from '../assets/category-hero.png';
 import Cart from './Cart';
-import Modal from './Modal';
+import AriaModal from 'react-aria-modal';
 
 let CategoryScreen = ({ products, match }) =>
  

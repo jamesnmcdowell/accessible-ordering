@@ -21,14 +21,15 @@ class DropdownButton extends React.Component {
 
     render() {
         const { selected, noMenu } = this.state;
-        const { options, cost} = this.props;
+        const { options, cost, settings} = this.props;
 
         const menuItemElements = options.map((option, i) => {
             let itemClass = 'AriaMenuButton-menuItem';
             if (selected === option) {
                 itemClass += ' is-selected';
             }
-            const display = option === 'destroy' ? 'destroy this menu' : `${option} - $${cost[i]}`;
+            // const display = option === 'destroy' ? 'destroy this menu' : `${option} - $${cost[i]}`;
+            const display = option === 'destroy' ? 'destroy this menu' : `${option} `;
             return (
                 <li className="AriaMenuButton-menuItemWrapper" key={i}>
                     <MenuItem className={itemClass} value={option} text={option}>
@@ -44,7 +45,7 @@ class DropdownButton extends React.Component {
                 onSelection={this.handleSelection.bind(this)}
             >
                 <ButtonStyled tag="button" className="AriaMenuButton-trigger">
-                    Add to Cart
+                    {settings.title}
                 </ButtonStyled>
                 <Menu>
                     <ul className="AriaMenuButton-menu">{menuItemElements}</ul>
