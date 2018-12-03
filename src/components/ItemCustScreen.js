@@ -22,7 +22,7 @@ class ItemCustScreen extends React.Component {
             focusCat: null,
             curIngredients: { ...props.item.ingredients},
             catCustOpen: catOrder.reduce((a, c) => {
-                a[c] = true;
+                a[c] = false
                 return a;
             },{})
         };
