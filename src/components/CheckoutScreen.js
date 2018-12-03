@@ -153,7 +153,7 @@ class CheckoutScreen extends Component {
                     onFocusChange={({ focused }) => this.setState({ focused })} // PropTypes.func.isRequired
                     id="your_unique_id" // PropTypes.string.isRequired,
                 /> */}
-                <DropDownButtonStyled onSelect={(val)=> {this.setState({pickupTime: val})} } settings={{ 'title': 'Select Time' }} options={['11:00am', '11:15am', '11:30am', '11:45am', '12:00pm', '12:15pm', '12:30pm', '12:45pm', '1:00pm']} />
+                <DropDownButtonStyled tabIndex="0" onSelect={(val)=> {this.setState({pickupTime: val})} } settings={{ 'title': 'Select Time' }} options={['11:00am', '11:15am', '11:30am', '11:45am', '12:00pm', '12:15pm', '12:30pm', '12:45pm', '1:00pm']} />
                 { pickupTime&&
                 <p>{pickupTime} </p> 
                 }

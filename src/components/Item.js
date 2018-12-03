@@ -37,11 +37,11 @@ let Item = ({ item, match, dispatch, history, costMap }) =>
                 history.push('/'); 
             }} aria-label={`add to cart ${item.name} `} role="button" tabIndex="0"> Add to Cart</Button2>
             :
-                <DropDownButtonStyled options={['small', 'medium', 'large']} settings={ {'title':'Add to Order'} } cost={['small', 'medium', 'large'].map(c => costMap[c])} onSelect={(size) => {
+                <DropDownButtonStyled role="button" tabIndex="0" options={['small', 'medium', 'large']} settings={ {'title':'Add to Order'} } cost={['small', 'medium', 'large'].map(c => costMap[c])} onSelect={(size) => {
                 dispatch({ type: "ADD_TO_CART", payload: {item, size} });
                 history.push('/');
             }}/>
-        }
+        }   
         </GridSeparate>
     </ItemContainer>
 

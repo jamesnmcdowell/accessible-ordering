@@ -36,6 +36,7 @@ class ItemCustScreen extends React.Component {
     }
 
     openCatCust (cat) {
+        console.log(cat);
         this.setState({
             focusCat: cat,
             catCustOpen: {
@@ -98,7 +99,7 @@ class ItemCustScreen extends React.Component {
                         {catOrder.map((c, i) =>
                             <Section key={`custcat${c}`}>
                                 <div>
-                                    <CatTitle aria-label="{`${c}`}"> {c}</CatTitle>
+                                    <CatTitle aria-label={`${c}`}> {c}</CatTitle>
 
                                     <SelectedSpan aria-label={`Current ${c} Selection`} >
                                     Selected:

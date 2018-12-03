@@ -44,7 +44,7 @@ class DropdownButton extends React.Component {
                 className="AriaMenuButton"
                 onSelection={this.handleSelection.bind(this)}
             >
-                <ButtonStyled tag="button" className="AriaMenuButton-trigger">
+                <ButtonStyled tabIndex="0" tag="button" className="AriaMenuButton-trigger">
                     {settings.title}
                 </ButtonStyled>
                 <Menu>

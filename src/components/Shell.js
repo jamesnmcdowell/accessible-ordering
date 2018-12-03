@@ -25,7 +25,7 @@ class Shell extends Component {
         let {children, match} = this.props;
         return (
             <Site className="site" >
-                <ZipRequest/>
+                {/* <ZipRequest/> */}
                 <SiteHeader match={match} />
                 <Grab className="scroll-grabber" >
                 <SiteContent  >
